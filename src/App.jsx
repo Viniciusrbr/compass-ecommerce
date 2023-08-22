@@ -1,10 +1,11 @@
 import './App.css'
+import HomePage from './pages/HomePage'
 
 function App() {
 
   return (
     <>
-      <h1>E-commerce Compass</h1>
+      <HomePage />
     </>
   )
 }
