@@ -2,7 +2,7 @@ import './App.css'
 import { Fragment } from 'react'
 import { createGlobalStyle } from 'styled-components'
 import HomePage from './pages/HomePage'
-import MainBanner from './components/MainBanner/index'
+
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -16,7 +16,6 @@ function App() {
     <>
       <GlobalStyle />
       <HomePage />
-      <MainBanner />
     </>
   )
 }
