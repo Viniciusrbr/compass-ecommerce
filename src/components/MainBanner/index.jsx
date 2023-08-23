@@ -43,6 +43,12 @@ const LeftArrowIcon = styled.img`
   width: 6.667px;
 `
 
+const RightArrowIcon = styled.img`
+  color: #EEEEEE;
+  height: 12px;
+  width: 6.667px;
+`
+
 const IconContainer = styled.span`
   align-items: center;
   display: flex;
@@ -53,7 +59,7 @@ const IconContainer = styled.span`
   width: 6.67px;
 `
 
-const IconCircle = styled.div`
+const IconCircleLeft = styled.div`
   border-radius: 30px;
   border: 1px solid #EEEEEE;
   color: #EEEEEE;
@@ -69,6 +75,23 @@ const IconCircle = styled.div`
   gap: 10px;
   flex-shrink: 0;
   margin: 0 0 0 200px;
+`
+
+const IconCircleRight = styled.div`
+  align-items: center;
+  border-radius: 30px;
+  border: 1px solid #EEEEEE;
+  color: #EEEEEE;
+  display: inline-block;
+  flex-direction: column;
+  gap: 10px;
+  height: 44px;
+  justify-content: center;
+  left: 1340px;
+  padding: var(--spacing-lg, 8px);
+  position: absolute;
+  top: 321px !important;
+  width: 44px;
 `
 
 const Button = styled.button`
@@ -97,11 +120,16 @@ const TopBanner = () => {
     <BannerContainer src={Banner} className="top-banner-image" alt="Macbook partially open with an abstract screensaver">
       <h1>Macbook PRO M2</h1>
       <p>Velocidade e performance</p>
-      <IconCircle>
+      <IconCircleLeft>
         <IconContainer>
           <LeftArrowIcon src={LArrowIcon} className="left-arrow-icon" alt="simple arrow pointing left"></LeftArrowIcon>
         </IconContainer>
-      </IconCircle>
+      </IconCircleLeft>
+      <IconCircleRight>
+        <IconContainer>
+          <RightArrowIcon src={RArrowIcon} className="right-arrow-icon" alt="simple arrow pointing right"></RightArrowIcon>
+        </IconContainer>
+      </IconCircleRight>
       <Button>Confira</Button>
     </BannerContainer>
   );
