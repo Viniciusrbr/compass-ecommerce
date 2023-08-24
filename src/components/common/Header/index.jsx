@@ -16,11 +16,16 @@ const RoundedIcon = styled.img`
   height: 24px;
 `;
 
+const LogoIcon = styled.img`
+  width: 44px;
+  height: 44px;
+`;
+
 const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 32px 200px;
+  padding: 32px 200px;
   gap: 40px;
 `;
 
@@ -66,6 +71,8 @@ const SearchContainer = styled.div`
   border-radius: 4px;
   padding: 14px 16px;
   width: 833px;
+
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 `;
 
 const SearchIconImage = styled.img`
@@ -80,11 +87,15 @@ const SearchInput = styled.input`
   text-align: right;
 `;
 
+
+
 const Header = () => {
   return (
     <HeaderContainer>
       <CartButton>
-        <Link to="/cart"><RoundedIcon src={cartIcon} alt="Cart" /> </Link>
+        <Link to="/cart">
+          <RoundedIcon src={cartIcon} alt="Cart" />{" "}
+        </Link>
       </CartButton>
 
       <WelcomeContainer>
@@ -100,8 +111,9 @@ const Header = () => {
         <SearchInput type="text" placeholder="Buscar" />
       </SearchContainer>
 
-      <Link to="/"><RoundedIcon src={siteLogo} alt="Logo" /></Link>
-      
+      <Link to="/">
+        <LogoIcon src={siteLogo} alt="Logo" />
+      </Link>
     </HeaderContainer>
   );
 };
