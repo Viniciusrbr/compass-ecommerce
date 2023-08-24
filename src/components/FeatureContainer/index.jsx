@@ -3,58 +3,50 @@ import cardIcon from "../../assets/icons/card-icon.png";
 import loadingIcon from "../../assets/icons/loading-icon.png";
 import carIcon from "../../assets/icons/car-icon.png";
 
- 
-
 const SectionContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
+  margin-top: 30px
 `;
-
- 
 
 const DivContainer = styled.div`
-  flex: 0 0 calc(30% - 20px);
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin: 5px;
-  text-align: center;
+  width: 300px;
+  height: fit-content;
+  padding: 15px;
+  border-radius: 1px;
+  border: 0.1px solid #ccc;
+  display: flex;
+  align-items: center; /* Center elements vertically */
 `;
 
- 
-
-const Image = styled.img`
-  max-width: 100%;
-  height: auto;
+const Content = styled.div`
+  flex: 1;
 `;
 
- 
-
-const Title = styled.h2`g
-  margin-top: 10px;
+const Title = styled.p`
+  margin-top: 0;
+  text-align: right; /* Align h2 to the right */
+  margin-bottom: 1px;
+  font-family: Roboto Mono;
 `;
-
- 
 
 const Text = styled.p`
   margin-top: 5px;
+  text-align: right;
+  
 `;
 
- 
-
-// const cardIcon = style 
-// color: #EEEEEE;
-//   height: 12px;
-//   width: 6.667px;
-
- 
-
- 
+const Image = styled.img`
+  width: 40px;
+  height: 40px;
+  margin-left: 15px;
+`;
 
 const SectionWithDivs = () => {
   const divData = [
     {
-      imgSrc: cardIcon, 
+      imgSrc: cardIcon,
       title: 'Comprou',
       text: 'Aceitamos todos os cartões',
     },
@@ -64,27 +56,25 @@ const SectionWithDivs = () => {
       text: 'Aprovação de compra',
     },
     {
-      imgSrc:carIcon,
+      imgSrc: carIcon,
       title: 'Entrega',
       text: 'Entregamos para todo Brasil',
     },
   ];
 
- 
-
   return (
-<SectionContainer>
+    <SectionContainer>
       {divData.map((item, index) => (
-<DivContainer key={index}>
-<Image src={item.imgSrc} alt={`Imagem ${index + 1}`} />
-<Title>{item.title}</Title>
-<Text>{item.text}</Text>
-</DivContainer>
+        <DivContainer key={index}>
+          <Content>
+            <Title>{item.title}</Title>
+            <Text>{item.text}</Text>
+          </Content>
+          <Image src={item.imgSrc} alt={`Imagem ${index + 1}`} />
+        </DivContainer>
       ))}
-</SectionContainer>
+    </SectionContainer>
   );
 };
-
- 
 
 export default SectionWithDivs;
