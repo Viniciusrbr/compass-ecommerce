@@ -1,9 +1,13 @@
 import styled from "styled-components";
 import ProductImage from "../../../assets/images/watch.jpeg";
+import StarIcon from "../../../assets/icons/star.svg";
+import HeartIcon from "../../../assets/icons/heart.svg";
+import CartIcon from "../../../assets/icons/cart.svg";
 
 const colors = {
     aqua: "#62D0B6",
     coral: "#F55157",
+    buttonGray: "#EEEEEE",
     lightGray: "#F8F8F8",
     mediumGray: "#A5A5A5",
     mediumDarkGray: "#666666",
@@ -12,13 +16,14 @@ const colors = {
 };
 
 const OfferItemContainer = styled.div`
+    align-items: flex-start;
     background: ${colors.white};
     border-radius: var(--radius-sm, 4px);
     border: 2px solid ${colors.aqua};
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
     flex: 1 0 0;
+    height: 271px;
+    width: 588px;
 `
 
 const OfferItemDetails = styled.div`
@@ -28,14 +33,20 @@ const OfferItemDetails = styled.div`
     align-items: flex-end;
     gap: var(--spacing-xl, 16px);
     flex: 1 0 0;
+    height: 239px;
+    width: 360px;
 `
 
 const OfferItemImage = styled.section`
     align-self: stretch;
     background-image: url(${ProductImage});
-    background-position: center;
+    background-position: center center;
     background-repeat: no-repeat;
+    background-size: cover;
     border-radius: 0 4px 0 0;
+    height: 271px;
+    margin: auto;
+    padding: 0;
     width: 196px;
 `
 
@@ -103,21 +114,187 @@ const OfferItemRatingStars = styled.div`
 `
 
 const OfferItemStarIcon = styled.img`
+    align-items: center;
+    align-self: stretch;
+    background-image: url(${StarIcon});
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
     color: #D6D6D6;
     display: flex;
-    width: 13px;
     height: 13px;
     padding: 0.299px 0px 0.3px 0px;
     justify-content: center;
-    align-items: center;
     margin: 0;
+    width: 13px;
+`
+
+const OfferItemPrices = styled.div`
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: var(--spacing-lg, 8px);
+    align-self: stretch;
+    height: 25px;
+    vertical-align: baseline;
+    width: 360px;
+`
+
+const OfferItemFullPrice = styled.p`
+    color: ${colors.mediumGray};
+    text-align: right;
+    flex: 1 0 0;
+    font-family: Roboto Flex;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    height: 24px;
+    line-height: 24px;
+    margin: 0;
+    text-decoration: line-through;
+    vertical-align: baseline;
+    width: 240px;
+`
+
+const OfferItemDiscountedPrice = styled.div`
+    color: ${colors.coral};
+    text-align: right;
+    font-family: Roboto Flex;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    height: 25px;
+    line-height: 25px;
+    margin: 0;
+    vertical-align: baseline;
+`
+
+const Countdown = styled.div`
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-lg, 8px);
+    align-self: stretch;
+    height: 48px;
+    width: 360px;
+`
+
+const CountdownItem = styled.div`
+    background: ${colors.lightGray};
+    border-radius: 4px;
+    display: flex;
+    padding: var(--spacing-md, 4px) var(--spacing-xl, 16px) var(--spacing-lg, 8px) var(--spacing-xl, 16px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: -5px;
+    flex: 1 0 0;
+    height: 36px;
+    width: 52px;
+
+    p.num {
+        color: ${colors.darkGray};
+        text-align: right;
+        font-family: Roboto Flex;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 25px;
+        margin: 0;
+    }
+
+    p.label {
+        color: ${colors.mediumGray};
+        text-align: right;
+        font-family: Roboto Flex;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        margin: 0;
+    }
+`
+
+const ButtonContainer = styled.div`
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-lg, 8px);
+    align-self: stretch;
+    height: 56px;
+    width: 360px;
+`
+
+const ButtonFavourite = styled.button`
+    background: ${colors.white};
+    border-radius: var(--radius-sm, 4px);
+    border: 1px solid ${colors.buttonGray};
+    display: flex;
+    padding: var(--spacing-xl, 16px);
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-lg, 8px);
+    align-self: stretch;
+    height: 56px;
+    width: 50px;
+`
+
+const HeartContainer = styled.div`
+    background-image: url(${HeartIcon});
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    width: 18px;
+    height: 18px;
+    object-fit: cover;
+    padding: 1.098px 0px 1.66px 0px;
+    justify-content: center;
+    align-items: center;
+`
+
+const ButtonAddToCart = styled.button`
+    background: ${colors.aqua};
+    border-radius: var(--radius-sm, 4px);
+    border: 1px solid #62D0B6;
+    display: flex;
+    padding: var(--spacing-xl, 16px);
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-lg, 8px);
+    flex: 1 0 0;
+    height: 56px;
+    width: 302px;
+
+    p {
+        color: ${colors.white};
+        text-align: right;
+        font-family: Roboto Flex;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 24px; /* 150% */
+    }
+
+    div {
+        background-image: url(${CartIcon});
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: 13.578px 13.445px;
+        display: flex;
+        width: 16px;
+        height: 16px;
+        padding: 1.222px 1.229px 1.333px 1.193px;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+        height: 16px;
+        width: 16px;
+    }
 `
 
 const OfferItem = () => {
     return (
         <OfferItemContainer>
             <OfferItemDetails>
-                <OfferItemImage />
                 <OfferItemTextInfo>
                     <OfferItemTitle>Novo relógio inteligente da série 8</OfferItemTitle>
                     <OfferItemDescription>Black Sport Band - Regular.</OfferItemDescription>
@@ -131,8 +308,56 @@ const OfferItem = () => {
                             <OfferItemStarIcon />
                         </OfferItemRatingStars>
                     </OfferItemRating>
+                    <OfferItemPrices>
+                        <OfferItemFullPrice>de R$ 900,00</OfferItemFullPrice>
+                        <OfferItemDiscountedPrice>por R$ 780,00</OfferItemDiscountedPrice>
+                    </OfferItemPrices>
                 </OfferItemTextInfo>
+                    <Countdown>
+                        <CountdownItem>
+                            <p className="num">
+                                02
+                            </p>
+                            <p className="label">
+                                Dias
+                            </p>
+                        </CountdownItem>
+                        <CountdownItem>
+                            <p className="num">
+                                23
+                            </p>
+                            <p className="label">
+                                Horas
+                            </p>
+                        </CountdownItem>
+                        <CountdownItem>
+                            <p className="num">
+                                16
+                            </p>
+                            <p className="label">
+                                Minutos
+                            </p>
+                        </CountdownItem>
+                        <CountdownItem>
+                            <p className="num">
+                                02
+                            </p>
+                            <p className="label">
+                                Segundos
+                            </p>
+                        </CountdownItem>
+                    </Countdown>
+                    <ButtonContainer>
+                        <ButtonFavourite>
+                            <HeartContainer />
+                        </ButtonFavourite>
+                        <ButtonAddToCart>
+                            <p>Carrinho</p>
+                            <div></div>
+                        </ButtonAddToCart>
+                    </ButtonContainer>
             </OfferItemDetails>
+            <OfferItemImage />
         </OfferItemContainer>
     );
 };

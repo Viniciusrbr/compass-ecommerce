@@ -1,6 +1,17 @@
 import styled from "styled-components";
 import OfferItem from "./OfferItem/index";
 
+const OfferSection = styled.section`
+    display: flex;
+    width: 1600px;
+    padding: var(--spacing-6-xl, 56px) 200px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-3-xl, 32px);
+    height: 450px;
+    width: 1600px;
+`
+
 const OfferContainerTitle = styled.p`
     color: #333333;
     font-family: Roboto Flex;
@@ -16,19 +27,24 @@ const OfferContainerTitle = styled.p`
 `;
 
 const OfferContainer = styled.section`
-    align-items: center;
+    align-items: flex-start;
+    align-self: stretch;
     background: #F8F8F8;
     display: flex;
-    flex-direction: column;
-    padding: 0 200px;
+    height: 271px;
+    gap: var(--spacing-2-x1, 24px);
+    width: 1200px;
 `
 
 const Offers = () => {
     return (
-        <OfferContainer>
+        <OfferSection>
             <OfferContainerTitle>Ofertas terminando em breve</OfferContainerTitle>
-            <OfferItem />
-        </OfferContainer>
+            <OfferContainer>
+                <OfferItem />
+                <OfferItem />
+            </OfferContainer>
+        </OfferSection>
     )
 };
 
