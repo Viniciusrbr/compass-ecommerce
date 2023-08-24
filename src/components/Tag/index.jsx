@@ -11,8 +11,12 @@ const fonts = {
   };
 
 const TagShape = styled.div`
+    display: flex;
+    flex-direction: column;
+    left: 16px;
     margin: 0;
     position: relative;
+    top: 16px;
 `
 
 const TagRectangle = styled.div`
@@ -40,22 +44,21 @@ p {
 `
 
 const TagTriangle = styled.div`
-    border-color: transparent transparent transparent ${colors.coral};
-    border-style: solid;
-    border-width: 4.5px 0 4.5px 12px;
-    bottom: 20px;
-    height: 0;
-    left: 62px;
-    position: relative;
     width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 6px 9px 6px;
+    border-color: transparent transparent ${colors.coral} transparent;
+    left: 64px;
+    position: absolute;
+    transform: rotate(90deg);
 `
 
 const Tag = () => {
     return (
-        <>
-        <TagRectangle><p>25% OFF</p></TagRectangle>
-        <TagTriangle />
-        </>
+        <TagShape>
+        <TagRectangle><p>25% OFF</p><TagTriangle/></TagRectangle>
+        </TagShape>
     );
 };
 

@@ -18,6 +18,15 @@ const colors = {
   white: "#FFFFFF",
 };
 
+const Triangle = styled.div`
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 6px 9px 6px;
+    border-color: transparent transparent ${colors.aqua} transparent;
+    transform: rotate(90deg);
+`
+
 const Heart = (
   <svg
     width="18"
@@ -68,6 +77,7 @@ const OfferItemImage = styled.section`
   height: 271px;
   margin: auto;
   padding: 0;
+  position: relative;
   width: 196px;
   
   div:after {
@@ -249,7 +259,7 @@ const ButtonAddToCart = styled.button`
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
-    line-height: 24px; /* 150% */
+    line-height: 24px;
   }
 
   div {
@@ -294,6 +304,7 @@ const OfferItem = () => {
           </OfferItemRating>
           <OfferItemPrices>
             <OfferItemFullPrice>de R$ 900,00</OfferItemFullPrice>
+            <Triangle />
             <OfferItemDiscountedPrice>por R$ 780,00</OfferItemDiscountedPrice>
           </OfferItemPrices>
         </OfferItemTextInfo>
@@ -309,7 +320,7 @@ const OfferItem = () => {
         </ButtonContainer>
       </OfferItemDetails>
       <OfferItemImage>
-          <Tag style={{ top: 16 }}></Tag>
+          <Tag/>
       </OfferItemImage>
     </OfferItemContainer>
   );
