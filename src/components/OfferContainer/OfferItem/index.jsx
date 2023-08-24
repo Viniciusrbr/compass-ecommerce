@@ -18,15 +18,6 @@ const colors = {
   white: "#FFFFFF",
 };
 
-const Triangle = styled.div`
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 0 6px 9px 6px;
-    border-color: transparent transparent ${colors.aqua} transparent;
-    transform: rotate(90deg);
-`
-
 const Heart = (
   <svg
     width="18"
@@ -304,7 +295,6 @@ const OfferItem = () => {
           </OfferItemRating>
           <OfferItemPrices>
             <OfferItemFullPrice>de R$ 900,00</OfferItemFullPrice>
-            <Triangle />
             <OfferItemDiscountedPrice>por R$ 780,00</OfferItemDiscountedPrice>
           </OfferItemPrices>
         </OfferItemTextInfo>
