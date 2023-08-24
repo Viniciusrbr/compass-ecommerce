@@ -39,23 +39,22 @@ p {
 `
 
 const TagTriangle = styled.div`
-    border: 6px solid transparent;
-    border-top: 0;
-    border-bottom: 9px solid ${colors.coral};
+    border-color: transparent transparent transparent ${colors.coral};
+    border-style: solid;
+    border-width: 4.5px 0 4.5px 12px;
     bottom: 20px;
     height: 0;
     left: 62px;
-    position: absolute;
-    transform: rotate(90deg);
+    position: relative;
     width: 0;
 `
 
 const Tag = () => {
     return (
-        <TagShape>
+        <>
         <TagRectangle><p>25% OFF</p></TagRectangle>
         <TagTriangle />
-        </TagShape>
+        </>
     );
 };
 

@@ -1,12 +1,14 @@
 import styled from "styled-components";
 import ProductImage from "../../../assets/images/watch.jpeg";
 import Tag from "../../Tag/index";
+import Countdown from "../../Countdown/index";
 import StarIcon from "../../../assets/icons/star.svg";
 import HeartIcon from "../../../assets/icons/heart.svg";
 import CartIcon from "../../../assets/icons/cart.svg";
 
 const colors = {
     aqua: "#62D0B6",
+    aquaHover: "#81D9C5",
     coral: "#F55157",
     buttonGray: "#EEEEEE",
     lightGray: "#F8F8F8",
@@ -52,7 +54,19 @@ const OfferItemImage = styled.section`
     
     div {
         position: relative;
-        top: 16px;
+    }
+
+    div:after {
+        position: absolute;
+        right: 200px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 4.5px 0 4.5px 12px;
+        border-color: transparent transparent transparent ${colors.coral};
+
     }
 `
 
@@ -175,51 +189,6 @@ const OfferItemDiscountedPrice = styled.div`
     vertical-align: baseline;
 `
 
-const Countdown = styled.div`
-    display: flex;
-    align-items: flex-start;
-    gap: var(--spacing-lg, 8px);
-    align-self: stretch;
-    height: 48px;
-    width: 360px;
-`
-
-const CountdownItem = styled.div`
-    background: ${colors.lightGray};
-    border-radius: 4px;
-    display: flex;
-    padding: var(--spacing-md, 4px) var(--spacing-xl, 16px) var(--spacing-lg, 8px) var(--spacing-xl, 16px);
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: -5px;
-    flex: 1 0 0;
-    height: 36px;
-    width: 52px;
-
-    p.num {
-        color: ${colors.darkGray};
-        text-align: right;
-        font-family: Roboto Flex;
-        font-size: 18px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: 25px;
-        margin: 0;
-    }
-
-    p.label {
-        color: ${colors.mediumGray};
-        text-align: right;
-        font-family: Roboto Flex;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        margin: 0;
-    }
-`
-
 const ButtonContainer = styled.div`
     display: flex;
     align-items: flex-start;
@@ -230,7 +199,7 @@ const ButtonContainer = styled.div`
 `
 
 const ButtonFavourite = styled.button`
-    background: ${colors.white};
+    background: ${props => (props.clicked ? '${colors.aqua}' : '${colors.white}')};
     border-radius: var(--radius-sm, 4px);
     border: 1px solid ${colors.buttonGray};
     display: flex;
@@ -248,8 +217,8 @@ const HeartContainer = styled.div`
     background-position: center center;
     background-repeat: no-repeat;
     background-size: contain;
+    color: #ffffff;
     display: flex;
-    width: 18px;
     height: 18px;
     object-fit: cover;
     padding: 1.098px 0px 1.66px 0px;
@@ -269,6 +238,10 @@ const ButtonAddToCart = styled.button`
     flex: 1 0 0;
     height: 56px;
     width: 302px;
+
+    &:hover {
+        background: ${colors.aquaHover};
+    }
 
     p {
         color: ${colors.white};
@@ -319,42 +292,9 @@ const OfferItem = () => {
                         <OfferItemDiscountedPrice>por R$ 780,00</OfferItemDiscountedPrice>
                     </OfferItemPrices>
                 </OfferItemTextInfo>
-                    <Countdown>
-                        <CountdownItem>
-                            <p className="num">
-                                02
-                            </p>
-                            <p className="label">
-                                Dias
-                            </p>
-                        </CountdownItem>
-                        <CountdownItem>
-                            <p className="num">
-                                23
-                            </p>
-                            <p className="label">
-                                Horas
-                            </p>
-                        </CountdownItem>
-                        <CountdownItem>
-                            <p className="num">
-                                16
-                            </p>
-                            <p className="label">
-                                Minutos
-                            </p>
-                        </CountdownItem>
-                        <CountdownItem>
-                            <p className="num">
-                                02
-                            </p>
-                            <p className="label">
-                                Segundos
-                            </p>
-                        </CountdownItem>
-                    </Countdown>
+                    <Countdown />
                     <ButtonContainer>
-                        <ButtonFavourite>
+                        <ButtonFavourite clicked>
                             <HeartContainer />
                         </ButtonFavourite>
                         <ButtonAddToCart>
@@ -364,7 +304,7 @@ const OfferItem = () => {
                     </ButtonContainer>
             </OfferItemDetails>
             <OfferItemImage>
-                <div>
+                <div after>
                    <Tag></Tag>
                 </div>
             </OfferItemImage>
