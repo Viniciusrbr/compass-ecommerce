@@ -52,8 +52,8 @@ const SectionWithDivs = () => {
     },
     {
       imgSrc: loadingIcon,
-      title: 'Atualizou',
-      text: 'Aprovação de compra',
+      title: "Atualizou",
+      text: "Aprovação de compra",
     },
     {
       imgSrc: carIcon,
