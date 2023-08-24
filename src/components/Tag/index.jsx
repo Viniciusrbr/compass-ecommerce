@@ -7,42 +7,50 @@ const colors = {
   };
 
 const fonts = {
-    robotoFlex: "Roboto FLex",
+    robotoFlex: "Roboto Flex",
   };
 
 const TagRectangle = styled.div`
     align-items: center;
+    background: ${colors.coral};
     border-radius: 2px;
     display: flex;
     gap: 10px;
     height: 30px;
     justify-content: center;
-    padding: 5px 10px 10px 10px;
-    width: 55px;
+    width: 67px;
 
-    p {
-        color: ${white};
-        font-family: Roboto Flex;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        text-align: center;
-    }
+p {
+    color: ${colors.white};
+    display: inline-block;
+    font-family: Roboto Flex;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    height: 16px;
+    line-height: normal;
+    text-align: center;
+    width: 58px !important;
+}
 `
 
 const TagTriangle = styled.div`
-    background: ${aqua};
-    clip-path: polygon (50% 0, 100% 100%, 0 100%);
-    height: 9px;
+    border: 6px solid transparent;
+    border-top: 0;
+    border-bottom: 9px solid ${colors.coral};
+    bottom: 20px;
+    height: 0;
+    left: 62px;
+    position: relative;
     transform: rotate(90deg);
-    width: 12px;
+    width: 0;
 `
 
 const Tag = () => {
     return (
         <div>
-        <TagRectangle>Novo</TagRectangle>
+        <TagRectangle><p>25% OFF</p></TagRectangle>
+        <TagTriangle />
         </div>
     );
 };
