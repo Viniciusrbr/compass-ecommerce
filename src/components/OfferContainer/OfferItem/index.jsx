@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import ProductImage from "../../../assets/images/watch.jpeg";
+import Tag from "../../Tag/index";
 import StarIcon from "../../../assets/icons/star.svg";
 import HeartIcon from "../../../assets/icons/heart.svg";
 import CartIcon from "../../../assets/icons/cart.svg";
@@ -42,12 +43,16 @@ const OfferItemImage = styled.section`
     background-image: url(${ProductImage});
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     border-radius: 0 4px 0 0;
     height: 271px;
     margin: auto;
     padding: 0;
     width: 196px;
+    
+    div {
+        position: relative;
+    }
 `
 
 const OfferItemTextInfo = styled.div`
@@ -113,7 +118,7 @@ const OfferItemRatingStars = styled.div`
     width: 73px;
 `
 
-const OfferItemStarIcon = styled.img`
+const OfferItemStarIcon = styled.div`
     align-items: center;
     align-self: stretch;
     background-image: url(${StarIcon});
@@ -357,7 +362,11 @@ const OfferItem = () => {
                         </ButtonAddToCart>
                     </ButtonContainer>
             </OfferItemDetails>
-            <OfferItemImage />
+            <OfferItemImage>
+                <div>
+                   <Tag></Tag>
+                </div>
+            </OfferItemImage>
         </OfferItemContainer>
     );
 };

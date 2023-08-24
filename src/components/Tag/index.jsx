@@ -10,6 +10,10 @@ const fonts = {
     robotoFlex: "Roboto Flex",
   };
 
+const TagShape = styled.div`
+    margin: 0;
+`
+
 const TagRectangle = styled.div`
     align-items: center;
     background: ${colors.coral};
@@ -48,10 +52,10 @@ const TagTriangle = styled.div`
 
 const Tag = () => {
     return (
-        <div>
+        <TagShape>
         <TagRectangle><p>25% OFF</p></TagRectangle>
         <TagTriangle />
-        </div>
+        </TagShape>
     );
 };
 
