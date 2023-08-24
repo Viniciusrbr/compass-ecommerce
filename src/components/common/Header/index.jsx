@@ -5,6 +5,8 @@ import profileIcon from "../../../../src/assets/icons/user-profile.png";
 import searchIcon from "../../../../src/assets/icons/search-icon.png";
 import siteLogo from "../../../../src/assets/icons/cart-logo-icon.png";
 
+import { Link } from "react-router-dom";
+
 const RoundedIcon = styled.img`
   border-radius: 50px;
   padding: 8px;
@@ -82,7 +84,7 @@ const Header = () => {
   return (
     <HeaderContainer>
       <CartButton>
-        <RoundedIcon src={cartIcon} alt="Cart" />
+        <Link to="/cart"><RoundedIcon src={cartIcon} alt="Cart" /> </Link>
       </CartButton>
 
       <WelcomeContainer>
@@ -98,7 +100,8 @@ const Header = () => {
         <SearchInput type="text" placeholder="Buscar" />
       </SearchContainer>
 
-      <RoundedIcon src={siteLogo} alt="Logo" />
+      <Link to="/"><RoundedIcon src={siteLogo} alt="Logo" /></Link>
+      
     </HeaderContainer>
   );
 };
