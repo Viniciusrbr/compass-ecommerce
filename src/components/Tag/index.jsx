@@ -45,7 +45,7 @@ const TagTriangle = styled.div`
     bottom: 20px;
     height: 0;
     left: 62px;
-    position: relative;
+    position: absolute;
     transform: rotate(90deg);
     width: 0;
 `

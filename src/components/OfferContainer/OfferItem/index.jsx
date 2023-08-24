@@ -52,6 +52,7 @@ const OfferItemImage = styled.section`
     
     div {
         position: relative;
+        top: 16px;
     }
 `
 
