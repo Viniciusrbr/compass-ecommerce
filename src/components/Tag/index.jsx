@@ -12,6 +12,7 @@ const fonts = {
 
 const TagShape = styled.div`
     margin: 0;
+    position: relative;
 `
 
 const TagRectangle = styled.div`
