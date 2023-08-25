@@ -4,11 +4,16 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import RootLayout from "./pages/root";
 import CartPage from "./pages/CartPage";
 import ProductDetailsPage from "./pages/ProductDetails";
+import { CartProvider } from "./store/CartContext";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <RootLayout />,
+    element: (
+      <CartProvider>
+        <RootLayout />
+      </CartProvider>
+    ),
     children: [
       { index: true, element: <HomePage /> },
       { path: "cart", element: <CartPage /> },

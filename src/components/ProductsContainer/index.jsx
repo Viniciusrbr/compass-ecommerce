@@ -1,6 +1,8 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
-import producImage from "../../assets/images/ProductImage.png";
+import { useCart } from "../../store/CartContext";
+import axios from "axios";
+import cartIconBlack from "../../assets/icons/cart-icon-black.svg";
 
 const Container = styled.div`
   margin: 80px auto;
@@ -32,11 +34,11 @@ const ContainerTitles = styled.div`
 
 const ProductsSection = styled.div`
   display: flex;
-  align-items: flex-start; 
-  justify-content: flex-start; 
+  align-items: flex-start;
+  justify-content: flex-start;
   flex-wrap: wrap;
   gap: 24px;
-  margin: 0 -12px; 
+  margin: 0 -12px;
 `;
 
 const ProductCard = styled.div`
@@ -51,20 +53,24 @@ const ProductCard = styled.div`
 
 const ProductImage = styled.img`
   width: 100%;
-  height: auto;
+  min-height: 228px;
+  max-height: 228px;
 `;
 
 const ProductInformation = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+
   margin-top: 16px;
   margin-right: 16px;
+
   h2 {
     margin: 0;
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
+    text-align: right;
   }
 
   p {
@@ -77,9 +83,50 @@ const ProductInformation = styled.div`
   }
 `;
 
+const CardButtons = styled.div`
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  button {
+    width: 192px;
+    height: 56px;
+    padding: 16px;
+
+    color: #333;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+
+    background-color: transparent;
+    border: 1px solid #eee;
+    cursor: pointer;
+    &:hover {
+      background-color: #62d0b6;
+      color: white;
+    }
+  }
+`;
+
 function ProductsContainer() {
-  const name = "Relogio Top";
-  const price = "250";
+  const { cart, dispatch } = useCart();
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("https://fakestoreapi.com/products")
+      .then((response) => {
+        setProducts(response.data.slice(0, 8)); // salva os 8 primeiros produtos
+      })
+      .catch((error) => {
+        console.error("Error fetching products:", error);
+      });
+  }, []);
+
+  const addToCart = (product) => {
+    dispatch({ type: "ADD_TO_CART", payload: product });
+  };
 
   return (
     <Container>
@@ -89,13 +136,22 @@ function ProductsContainer() {
       </ContainerTitles>
 
       <ProductsSection>
-        {Array.from({ length: 8 }, (_, index) => (
-          <ProductCard key={index}>
-            <ProductImage src={producImage} alt={name} />
+        {products.map((product) => (
+          <ProductCard key={product.id}>
+
+            <ProductImage src={product.image} alt={product.title} />
+
             <ProductInformation>
-              <h2>{name}</h2>
-              <p>por R$ {price}</p>
+              <h2>{product.title}</h2>
+              <p>por R$ {product.price.toFixed(2)}</p>
             </ProductInformation>
+
+            <CardButtons>
+              <button onClick={() => addToCart(product)}>
+                Carrinho <img src={cartIconBlack} alt="" />
+              </button>
+            </CardButtons>
+
           </ProductCard>
         ))}
       </ProductsSection>
