@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import api from "../../../services/api";
 import styled from "styled-components";
-import ProductImage from "../../../assets/images/watch.jpeg";
+import watch from "../../../assets/images/watch.jpeg";
 import Tag from "../../Tag/index";
 import Countdown from "../../Countdown/index";
 import CartIcon from "../../../assets/icons/cart.svg";
@@ -60,14 +60,15 @@ const OfferItemDetails = styled.div`
 
 const OfferItemImage = styled.section`
   align-self: stretch;
-  background-image: url(${ProductImage});
+  background-image: ${(props) => `url(${props.image})`};
+  background-origin: content-box;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
   border-radius: 0 4px 0 0;
   height: 271px;
   margin: auto;
-  padding: 0;
+  padding: 16px;
   position: relative;
   width: 196px;
 `;
@@ -333,7 +334,7 @@ const OfferItem = () => {
           </ButtonAddToCart>
         </ButtonContainer>
       </OfferItemDetails>
-      <OfferItemImage>
+      <OfferItemImage image={product?.image}>
         <Tag />
       </OfferItemImage>
     </OfferItemContainer>

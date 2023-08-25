@@ -13,10 +13,10 @@ const fonts = {
 const TagShape = styled.div`
     display: flex;
     flex-direction: column;
-    left: 16px;
+    left: 0;
     margin: 0;
     position: relative;
-    top: 16px;
+    top: 0;
 `
 
 const TagRectangle = styled.div`
