@@ -2,6 +2,7 @@ import './App.css'
 import { Fragment } from 'react'
 import { createGlobalStyle } from 'styled-components'
 import HomePage from './pages/HomePage'
+import CartPage from './pages/CartPage'
 
 
 const GlobalStyle = createGlobalStyle`
@@ -15,7 +16,7 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <HomePage />
+      <CartPage />
     </>
   )
 }
