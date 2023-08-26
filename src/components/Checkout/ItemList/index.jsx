@@ -1,14 +1,6 @@
 import styled from "styled-components";
 import CartItem from "./CartItem/index";
 
-const colors = {
-  aqua: "#62D0B6",
-  lightGray: "#EEEEEE",
-  mediumGray: "#A5A5A5",
-  darkGray: "#333333",
-  white: "#FFFFFF",
-};
-
 const ItemsContainer = styled.div`
   display: flex;
   flex-direction: column;

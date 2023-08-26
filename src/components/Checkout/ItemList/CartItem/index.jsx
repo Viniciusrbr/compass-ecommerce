@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import styled from "styled-components";
 import Theme from "../../../../Theme";
 import iPhone from "../../../../assets/images/iPhone.png";

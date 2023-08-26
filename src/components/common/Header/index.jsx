@@ -20,7 +20,7 @@ const RegularIcon = styled.img`
 `;
 
 const HeaderContainer = styled.header`
-box-sizing: border-box;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -56,7 +56,7 @@ const WelcomeText = styled.div`
   }
   h1 {
     margin: 0;
-    color: #333;
+    color: var(--primary-color);
     font-size: 16px;
     font-weight: 400;
   }

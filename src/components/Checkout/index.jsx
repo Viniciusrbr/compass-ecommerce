@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Theme from "../../Theme";
 import CartSummary from "./CartSummary/index";
 import ItemList from "./ItemList/index";
 
