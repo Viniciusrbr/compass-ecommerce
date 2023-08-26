@@ -17,7 +17,7 @@ const DivContainer = styled.div`
   border-radius: 1px;
   border: 0.1px solid #ccc;
   display: flex;
-  align-items: center; /* Center elements vertically */
+  align-items: center; 
 `;
 
 const Content = styled.div`
@@ -26,7 +26,7 @@ const Content = styled.div`
 
 const Title = styled.p`
   margin-top: 0;
-  text-align: right; /* Align h2 to the right */
+  text-align: right; 
   margin-bottom: 1px;
   font-family: Roboto Mono;
 `;
