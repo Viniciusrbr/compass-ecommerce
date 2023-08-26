@@ -31,25 +31,30 @@ const ContainerTexts = styled.div`
   flex-direction: column;
   align-items: center;
 
-  margin-top: -144px;
+  margin-top: 0px;
 
   h1 {
     color: ${colors.white};
     font-family: ${fonts.robotoMono};
     font-size: 48px;
     font-weight: 400;
-
+    height: 70px;
+    line-height: 70px;
+    margin: 0;
     margin-bottom: 16px;
+    text-align: center;
+    width: 888px;
   }
   p {
     color: var(--footer-background);
     font-family: ${fonts.robotoMono};
     font-size: 16px;
     font-weight: 400;
+    height: 50px;
     text-align: center;
-
     margin-bottom: 16px;
     margin-top: 0;
+    width: 888px;
   }
 `;
 
@@ -75,7 +80,6 @@ const Button = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 24px;
 
   background: var(--primary-color);
   border-radius: 4px;
@@ -85,7 +89,7 @@ const Button = styled.button`
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-
+  height: 56px;
   padding: 16px;
   text-align: center;
   width: 200px;
