@@ -38,9 +38,9 @@ const HeartIcon = ({ myColor }) => (
 
 const OfferItemContainer = styled.div`
   align-items: flex-start;
-
+  background-color: white;
   border-radius: var(--radius-sm, 4px);
-  border: 2px solid gray;
+  border: 2px solid #62D0B6;
   display: flex;
   flex: 1 0 0;
   height: 271px;
