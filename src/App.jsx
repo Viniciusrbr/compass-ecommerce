@@ -1,23 +1,24 @@
-import './App.css'
-import { Fragment } from 'react'
-import { createGlobalStyle } from 'styled-components'
-import HomePage from './pages/HomePage'
+import "./App.css";
+import HomePage from "./pages/HomePage";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import RootLayout from "./pages/root";
+import CartPage from "./pages/CartPage";
+import ProductDetailsPage from "./pages/ProductDetails";
 
-
-const GlobalStyle = createGlobalStyle`
-  body {
-    font-family: 'Roboto Flex', sans-serif;
-    margin: 0;
-  }
-`
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <RootLayout />,
+    children: [
+      { index: true, element: <HomePage /> },
+      { path: "cart", element: <CartPage /> },
+      { path: "productDetails", element: <ProductDetailsPage /> },
+    ],
+  },
+]);
 
 function App() {
-  return (
-    <>
-      <GlobalStyle />
-      <HomePage />
-    </>
-  )
+  return <RouterProvider router={router} />;
 }
 
-export default App
+export default App;
