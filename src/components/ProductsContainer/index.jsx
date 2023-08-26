@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useCart } from "../../store/CartContext";
 import axios from "axios";
 import CartIcon from "../../assets/icons/cart.svg";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   display: inline-flex;
@@ -77,11 +78,12 @@ const ContainerTitles = styled.div`
 `;
 
 const ProductsSection = styled.div`
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  gap: var(--spacing-2-xl, 24px);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 24px;
+  height: 784px;
+  width: 1200px;
 `;
 
 const ProductCard = styled.div`
@@ -98,7 +100,11 @@ const ProductCard = styled.div`
 
 const ProductImage = styled.img`
   border-radius: 4px 4px 0px 0px;
-  background: url(<path-to-image>), lightgray 50% / cover no-repeat;
+  background: url(<path-to-image>);
+  background-origin: content-box;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
   flex: 1 0 0;
   align-self: stretch;
   height: 282px;
@@ -140,13 +146,32 @@ const ProductInformation = styled.div`
 `;
 
 const ProductPrices = styled.div`
-  p {
-    margin: 0;
+display: flex;
+justify-content: flex-end;
+align-items: center;
+gap: 6px;
+align-self: stretch;
+height: 25px;
+width: 250px;
+
+  p.fullPrice {
+    color: #a5a5a5;
+    font-family: Roboto Flex;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 171.429% */
+    text-decoration-line: strikethrough;
+  }
+
+  p.discountedPrice {
     color: #f55157;
+    text-align: right;
+    font-family: Roboto Flex;
     font-size: 18px;
     font-style: normal;
     font-weight: 500;
-    margin-top: 4px;
+    line-height: 25px; /* 138.889% */
   }
 `;
 
@@ -168,12 +193,12 @@ const ButtonAddToCart = styled.button`
   justify-content: center;
   align-items: center;
   gap: var(--spacing-lg, 8px);
-  flex: 1 0 0;
+
   height: 58px;
-  width: 128px;
+  width: 192px;
 
   &:hover {
-    background: #62D0B6;
+    background: #62d0b6;
     color: white;
   }
 
@@ -242,12 +267,21 @@ function ProductsContainer() {
       <ProductsSection>
         {products.map((product) => (
           <ProductCard key={product.id}>
-            <ProductImage src={product.image} alt={product.title} />
+            <Link to={`/productDetails/${product.id}`}>
+              <ProductImage src={product.image} alt={product.title} />
+            </Link>
+
             <ProductContent>
               <ProductInformation>
-                <h2>{product.title}</h2>
+                <Link to={`/productDetails/${product.id}`}>
+                  <h2>{product.title}</h2>
+                </Link>
+
                 <ProductPrices>
-                  <p>por R$ {product.price.toFixed(2)}</p>
+                  <p className="fullPrice">de R$ {product.price.toFixed(2)}</p>
+                  <p className="discountedPrice">
+                    por R$ {product.price.toFixed(2)}
+                  </p>
                 </ProductPrices>
               </ProductInformation>
 
