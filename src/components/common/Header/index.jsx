@@ -5,6 +5,9 @@ import profileIcon from "../../../../src/assets/icons/user-profile.png";
 import searchIcon from "../../../../src/assets/icons/search-icon.png";
 import siteLogo from "../../../../src/assets/icons/cart-logo-icon.png";
 
+import { Link } from "react-router-dom";
+import { useCart } from "../../../store/CartContext";
+
 const RoundedIcon = styled.img`
   border-radius: 50px;
   padding: 8px;
@@ -14,7 +17,11 @@ const RoundedIcon = styled.img`
   height: 24px;
 `;
 
+<<<<<<< HEAD
 const RegularIcon = styled.img`
+=======
+const LogoIcon = styled.img`
+>>>>>>> c174f967d40cecfde9ca6d981686340b5d158e4c
   width: 44px;
   height: 44px;
 `;
@@ -33,6 +40,16 @@ const CartButton = styled.button`
   border-radius: 50px;
   border: none;
   background: #f8f8f8;
+
+  span{
+    position: absolute;
+
+    background-color: #F55157;
+    border-radius: 50%;
+    padding: 8px;
+    color: #fff;
+    text-decoration: none;
+  }
 `;
 
 const WelcomeContainer = styled.div`
@@ -71,6 +88,8 @@ const SearchContainer = styled.div`
   border-radius: 4px;
   padding: 14px 16px;
   width: 833px;
+
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 `;
 
 const SearchIconImage = styled.img`
@@ -86,10 +105,15 @@ const SearchInput = styled.input`
 `;
 
 const Header = () => {
+  const { cart } = useCart();
+
   return (
     <HeaderContainer>
       <CartButton>
-        <RoundedIcon src={cartIcon} alt="Cart" />
+        <Link to="/cart">
+          <RoundedIcon src={cartIcon} alt="Cart" />
+          <span>{cart.length}</span>
+        </Link>
       </CartButton>
 
       <WelcomeContainer>
@@ -105,7 +129,13 @@ const Header = () => {
         <SearchInput type="text" placeholder="Buscar" />
       </SearchContainer>
 
+<<<<<<< HEAD
       <RegularIcon src={siteLogo} alt="Logo" />
+=======
+      <Link to="/">
+        <LogoIcon src={siteLogo} alt="Logo" />
+      </Link>
+>>>>>>> c174f967d40cecfde9ca6d981686340b5d158e4c
     </HeaderContainer>
   );
 };

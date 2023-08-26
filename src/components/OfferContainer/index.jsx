@@ -3,13 +3,7 @@ import OfferItem from "./OfferItem/index";
 
 const OfferSection = styled.section`
     display: flex;
-    width: 1600px;
-    padding: var(--spacing-6-xl, 56px) 200px;
     flex-direction: column;
-    align-items: flex-start;
-    gap: var(--spacing-3-xl, 32px);
-    height: 450px;
-    width: 1600px;
 `
 
 const OfferContainerTitle = styled.p`
@@ -31,8 +25,7 @@ const OfferContainer = styled.section`
     align-self: stretch;
     background: #F8F8F8;
     display: flex;
-    height: 271px;
-    gap: var(--spacing-2-x1, 24px);
+    gap: 24px;
     width: 1200px;
 `
 

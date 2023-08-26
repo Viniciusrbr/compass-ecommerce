@@ -1,7 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import api from "../../../services/api";
 import styled from "styled-components";
-import watch from "../../../assets/images/watch.jpeg";
 import Tag from "../../Tag/index";
 import Countdown from "../../Countdown/index";
 import CartIcon from "../../../assets/icons/cart.svg";
@@ -231,7 +230,7 @@ const ButtonContainer = styled.div`
   width: 360px;
 `;
 
-const ButtonFavorite = styled.button`
+export const ButtonFavorite = styled.button`
   background: ${colors.white};
   border-radius: var(--radius-sm, 4px);
   border: 1px solid ${colors.buttonGray};
