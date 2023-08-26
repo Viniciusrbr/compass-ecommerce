@@ -174,7 +174,7 @@ const ProductPrices = styled.div`
     margin: 0;
     max-width: 125px;
     padding: 0;
-    text-decoration-line: strikethrough;
+    text-decoration: line-through;
   }
 
   p.discountedPrice {
