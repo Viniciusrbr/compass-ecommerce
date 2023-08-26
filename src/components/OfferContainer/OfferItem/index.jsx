@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import api from "../../../services/api";
 import styled from "styled-components";
 import watch from "../../../assets/images/watch.jpeg";
@@ -301,7 +301,7 @@ const OfferItem = () => {
   const [product, setProduct] = useState();
   useEffect(() => {
     api
-      .get("/products/2")
+      .get("/products/9")
       .then((response) => setProduct(response.data))
       .catch((error) => console.log(error));
   });
@@ -309,7 +309,16 @@ const OfferItem = () => {
   let localizedPrice = new Intl.NumberFormat("pt-BR", {
     style: "currency",
     currency: "BRL",
-  }).format(10);
+    minimumFractionDigits: 2,
+  });
+
+  const [discount, setDiscount] = useState(0);
+
+  function getRandomDiscount(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min);
+  };
 
   return (
     <OfferItemContainer>
@@ -330,8 +339,7 @@ const OfferItem = () => {
             </OfferItemRatingStars>
           </OfferItemRating>
           <OfferItemPrices>
-            <OfferItemFullPrice>de {product?.price}</OfferItemFullPrice>
-            <StarIconHalfFilled />
+            <OfferItemFullPrice>de R$ {product?.price}</OfferItemFullPrice>
             <OfferItemDiscountedPrice>por R$ 780,00</OfferItemDiscountedPrice>
           </OfferItemPrices>
         </OfferItemTextInfo>

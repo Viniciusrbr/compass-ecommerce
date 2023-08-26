@@ -1,21 +1,12 @@
 import styled from "styled-components";
+import Theme from "../../../../Theme";
 import iPhone from "../../../../assets/images/iPhone.png";
 import Counter from "./IncrementDecrementItem/index";
 
-const colors = {
-  aqua: "#62D0B6",
-  seaSalt: "#F8F8F8",
-  lightGray: "#EEEEEE",
-  lightMediumGray: "#666666",
-  mediumGray: "#A5A5A5",
-  darkGray: "#333333",
-  white: "#FFFFFF",
-};
-
 const ItemContainer = styled.div`
   border-radius: var(--radius-sm, 4px);
-  border: 1px solid ${colors.lightGray};
-  background: ${colors.white};
+  border: ${props => `1px solid ${props.theme.colors.antiFlashWhite}`};
+  background: ${props => `${props.theme.colors.white}`};
   display: flex;
   padding: var(--spacing-xl, 16px);
   align-items: center;
@@ -26,7 +17,7 @@ const ItemContainer = styled.div`
 `;
 
 const IconContainer = styled.div`
-  background: ${colors.seaSalt};
+  background: ${props => `${props.theme.colors.seaSalt}`};
   border-radius: 50px;
   display: flex;
   padding: var(--spacing-lg, 8px);
@@ -53,7 +44,7 @@ const DeleteItem = () => (
 );
 
 const ItemTotalPrice = styled.p`
-  color: ${colors.darkGray};
+  color: ${props => `${props.theme.colors.jet}`};
   font-family: Roboto Flex;
   font-size: 18px;
   font-style: normal;
@@ -89,7 +80,7 @@ const ItemText = styled.div`
 
 const ItemTitle = styled.p`
   align-self: stretch;
-  color: ${colors.darkGray};
+  color: ${props => `${props.theme.colors.jet}`};
   display: -webkit-box;
   text-align: right;
   font-family: Roboto Flex;
@@ -107,7 +98,7 @@ const ItemTitle = styled.p`
 `;
 
 const ItemPrice = styled.p`
-  color: ${colors.lightMediumGray};
+  color: ${props => `${props.theme.colors.dimGray}`};
   text-align: right;
   font-family: Roboto Flex;
   font-size: 14px;
@@ -121,7 +112,7 @@ const ItemPrice = styled.p`
 
 const ItemImage = styled.div`
   border-radius: var(--radius-sm, 4px);
-  border: 1px solid ${colors.lightGray};
+  border: ${props => `1px solid ${props.theme.colors.antiFlashWhite}`};
   background-image: url(${iPhone});
   background-origin: content-box;
   background-position: center center;

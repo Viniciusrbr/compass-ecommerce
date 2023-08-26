@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import styled from "styled-components";
 import Coupon from "./Coupon/index";
 import BuyButton from "./BuyButton";
@@ -80,7 +81,7 @@ const CartSummary = () => {
     <CartSummaryContainer>
       <h1>Resumo do pedido</h1>
       <SummaryPrice>
-        <p className="pricetotal">R$ 6.400,00</p>
+        <p className="pricetotal">R$ 6.000,00</p>
         <p className="summarylabel">Total</p>
       </SummaryPrice>
       <Coupon />

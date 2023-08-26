@@ -17,7 +17,7 @@ function App() {
   return (
     <Theme>
       <GlobalStyle />
-      <CartPage />
+      <HomePage />
     </Theme>
   );
 };
