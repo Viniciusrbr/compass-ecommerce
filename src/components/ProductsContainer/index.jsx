@@ -5,8 +5,7 @@ import axios from "axios";
 import cartIconBlack from "../../assets/icons/cart-icon-black.svg";
 
 const Container = styled.div`
-  margin: 80px auto;
-  max-width: 1200px;
+  margin-top: 82px;
 `;
 
 const ContainerTitles = styled.div`
@@ -42,7 +41,7 @@ const ProductsSection = styled.div`
 `;
 
 const ProductCard = styled.div`
-  width: calc(25% - 24px); /* Card card ocupa 25% do container */
+  width: 282px;
   background-color: white;
   border-radius: 8px;
   overflow: hidden;
@@ -147,6 +146,8 @@ function ProductsContainer() {
             </ProductInformation>
 
             <CardButtons>
+
+
               <button onClick={() => addToCart(product)}>
                 Carrinho <img src={cartIconBlack} alt="" />
               </button>

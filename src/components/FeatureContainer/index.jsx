@@ -7,25 +7,23 @@ const SectionContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 30px 200px 0px 200px;
 `;
 
 const DivContainer = styled.div`
-  width: 100%;
   padding: 32px;
 
   border-radius: 2px;
   border: 1px solid #eee;
   display: flex;
-  align-items: center; /* Center elements vertically */
-  // justify-content: space-between; /* Center elements horizontally */
+  align-items: center; 
   gap: 16px;
+  width: 335px;
 `;
 
 const Content = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-end; /* Center elements horizontally */
+  align-items: flex-end; 
   width: 100%;
   p{
     margin: 0;
@@ -54,7 +52,7 @@ const Image = styled.img`
   height: 34.375px;
 `;
 
-const SectionWithDivs = () => {
+const FeatureSection = () => {
   const divData = [
     {
       imgSrc: cardIcon,
@@ -89,4 +87,4 @@ const SectionWithDivs = () => {
   );
 };
 
-export default SectionWithDivs;
+export default FeatureSection;
