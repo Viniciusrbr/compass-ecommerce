@@ -6,8 +6,8 @@ import Counter from "./IncrementDecrementItem/index";
 
 const ItemContainer = styled.div`
   border-radius: var(--radius-sm, 4px);
-  border: ${props => `1px solid ${props.theme.colors.antiFlashWhite}`};
-  background: ${props => `${props.theme.colors.white}`};
+  border: 1px solid (var--antiFlashWhite);
+  background: (var--white);
   display: flex;
   padding: var(--spacing-xl, 16px);
   align-items: center;
@@ -18,7 +18,7 @@ const ItemContainer = styled.div`
 `;
 
 const IconContainer = styled.div`
-  background: ${props => `${props.theme.colors.seaSalt}`};
+  background: (var--seaSalt);
   border-radius: 50px;
   display: flex;
   padding: var(--spacing-lg, 8px);
@@ -45,7 +45,7 @@ const DeleteItem = () => (
 );
 
 const ItemTotalPrice = styled.p`
-  color: ${props => `${props.theme.colors.jet}`};
+  color: (var--jet);
   font-family: Roboto Flex;
   font-size: 18px;
   font-style: normal;
@@ -81,7 +81,7 @@ const ItemText = styled.div`
 
 const ItemTitle = styled.p`
   align-self: stretch;
-  color: ${props => `${props.theme.colors.jet}`};
+  color: (var--jet);
   display: -webkit-box;
   text-align: right;
   font-family: Roboto Flex;
@@ -99,7 +99,7 @@ const ItemTitle = styled.p`
 `;
 
 const ItemPrice = styled.p`
-  color: ${props => `${props.theme.colors.dimGray}`};
+  color: (var--dimGray);
   text-align: right;
   font-family: Roboto Flex;
   font-size: 14px;
@@ -113,7 +113,7 @@ const ItemPrice = styled.p`
 
 const ItemImage = styled.div`
   border-radius: var(--radius-sm, 4px);
-  border: ${props => `1px solid ${props.theme.colors.antiFlashWhite}`};
+  border: (var--antiFlashWhite);
   background-image: url(${iPhone});
   background-origin: content-box;
   background-position: center center;

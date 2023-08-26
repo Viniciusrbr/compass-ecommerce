@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import api from "../../../services/api";
 import styled from "styled-components";
+import Theme from "../../../Theme";
 import Tag from "../../Tag/index";
 import Countdown from "../../Countdown/index";
 import CartIcon from "../../../assets/icons/cart.svg";
@@ -37,9 +38,9 @@ const HeartIcon = ({ myColor }) => (
 
 const OfferItemContainer = styled.div`
   align-items: flex-start;
-  background: ${colors.white};
+
   border-radius: var(--radius-sm, 4px);
-  border: 2px solid ${colors.aqua};
+  border: 2px solid gray;
   display: flex;
   flex: 1 0 0;
   height: 271px;

@@ -69,7 +69,7 @@ const WelcomeText = styled.div`
   }
   h1 {
     margin: 0;
-    color: var(--jet);
+    color: var(--mikadoYellow);
     font-size: 16px;
     font-weight: 400;
   }
