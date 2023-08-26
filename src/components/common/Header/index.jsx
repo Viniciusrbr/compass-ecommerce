@@ -6,6 +6,7 @@ import searchIcon from "../../../../src/assets/icons/search-icon.png";
 import siteLogo from "../../../../src/assets/icons/cart-logo-icon.png";
 
 import { Link } from "react-router-dom";
+import { useCart } from "../../../store/CartContext";
 
 const RoundedIcon = styled.img`
   border-radius: 50px;
@@ -22,17 +23,29 @@ const LogoIcon = styled.img`
 `;
 
 const HeaderContainer = styled.header`
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 32px 200px;
   gap: 40px;
+  width: 1600px;
 `;
 
 const CartButton = styled.button`
   border-radius: 50px;
   border: none;
   background: #f8f8f8;
+
+  span{
+    position: absolute;
+
+    background-color: #F55157;
+    border-radius: 50%;
+    padding: 8px;
+    color: #fff;
+    text-decoration: none;
+  }
 `;
 
 const WelcomeContainer = styled.div`
@@ -56,7 +69,7 @@ const WelcomeText = styled.div`
   }
   h1 {
     margin: 0;
-    color: #333;
+    color: var(--mikadoYellow);
     font-size: 16px;
     font-weight: 400;
   }
@@ -87,14 +100,15 @@ const SearchInput = styled.input`
   text-align: right;
 `;
 
-
-
 const Header = () => {
+  const { cart } = useCart();
+
   return (
     <HeaderContainer>
       <CartButton>
         <Link to="/cart">
-          <RoundedIcon src={cartIcon} alt="Cart" />{" "}
+          <RoundedIcon src={cartIcon} alt="Cart" />
+          <span>{cart.length}</span>
         </Link>
       </CartButton>
 

@@ -1,17 +1,20 @@
-import MainBanner from '../../components/MainBanner/index';
-import SectionWithDivs from '../../components/FeatureContainer/index';
-import FooterBanner from '../../components/common/FooterBanner/index';
-import Footer from "../../components/common/Footer";
-
+import React from "react";
+import MainBanner from "../../components/MainBanner/index";
+import FeatureSection from "../../components/FeatureContainer/index";
+import Offers from "../../components/OfferContainer/index";
+import ProductsContainer from "../../components/ProductsContainer";
+import FooterBanner from "../../components/common/FooterBanner/index";
 
 function HomePage() {
-  return <>
-    <MainBanner />
-    <SectionWithDivs />
-    <FooterBanner></FooterBanner>
-    <Footer></Footer>
-    
-  </>;
+  return (
+    <>
+      <MainBanner />
+      <FeatureSection />
+      <Offers />
+      <ProductsContainer />
+      <FooterBanner></FooterBanner>
+    </>
+  );
 }
 
 export default HomePage;
