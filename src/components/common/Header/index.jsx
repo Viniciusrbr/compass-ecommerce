@@ -14,12 +14,19 @@ const RoundedIcon = styled.img`
   height: 24px;
 `;
 
+const RegularIcon = styled.img`
+  width: 44px;
+  height: 44px;
+`;
+
 const HeaderContainer = styled.header`
+box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 32px 200px;
+  padding: 32px 200px;
   gap: 40px;
+  width: 1600px;
 `;
 
 const CartButton = styled.button`
@@ -98,7 +105,7 @@ const Header = () => {
         <SearchInput type="text" placeholder="Buscar" />
       </SearchContainer>
 
-      <RoundedIcon src={siteLogo} alt="Logo" />
+      <RegularIcon src={siteLogo} alt="Logo" />
     </HeaderContainer>
   );
 };

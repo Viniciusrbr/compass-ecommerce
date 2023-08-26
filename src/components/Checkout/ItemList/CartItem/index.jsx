@@ -1,8 +1,10 @@
 import styled from "styled-components";
 import iPhone from "../../../../assets/images/iPhone.png";
+import Counter from "./IncrementDecrementItem/index";
 
 const colors = {
   aqua: "#62D0B6",
+  seaSalt: "#F8F8F8",
   lightGray: "#EEEEEE",
   lightMediumGray: "#666666",
   mediumGray: "#A5A5A5",
@@ -19,8 +21,17 @@ const ItemContainer = styled.div`
   align-items: center;
   gap: var(--spacing-3-xl, 32px);
   align-self: stretch;
-  height: 112px;
-  width: 894px;
+  height: 80px;
+  width: 862px;
+`;
+
+const IconContainer = styled.div`
+  background: ${colors.seaSalt};
+  border-radius: 50px;
+  display: flex;
+  padding: var(--spacing-lg, 8px);
+  align-items: center;
+  gap: 10px;
 `;
 
 const DeleteItem = () => (
@@ -48,29 +59,30 @@ const ItemTotalPrice = styled.p`
   font-style: normal;
   font-weight: 500;
   height: 25px;
-  line-height: 25px; /* 138.889% */
+  line-height: 25px;
   margin: 0;
+  max-width: 106.64px;
+  min-width: 106.64px;
   padding: 0;
-  width: 96px;
 `;
 
 const ItemDetails = styled.div`
+  align-items: center;
   display: flex;
   justify-content: flex-end;
-  align-items: center;
   gap: var(--spacing-xl, 16px);
   flex: 1 0 0;
   height: 80px;
   width: 468px;
 `;
 
-const ItemDetailsText = styled.div`
-  align-self: stretch;
+const ItemText = styled.div`
+  align-self: center;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: var(--spacing-md, 4px);
-  flex: 1 0 0;
+
   height: 54px;
   width: 357px;
 `;
@@ -78,6 +90,7 @@ const ItemDetailsText = styled.div`
 const ItemTitle = styled.p`
   align-self: stretch;
   color: ${colors.darkGray};
+  display: -webkit-box;
   text-align: right;
   font-family: Roboto Flex;
   font-size: 16px;
@@ -85,7 +98,12 @@ const ItemTitle = styled.p`
   font-weight: 500;
   height: 38px;
   line-height: normal;
-  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  width: 357px;
 `;
 
 const ItemPrice = styled.p`
@@ -96,15 +114,19 @@ const ItemPrice = styled.p`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  margin: 0;
+  padding: 0;
+  width: 357px;
 `;
 
 const ItemImage = styled.div`
   border-radius: var(--radius-sm, 4px);
   border: 1px solid ${colors.lightGray};
-  background-image: ${iPhone};
+  background-image: url(${iPhone});
   background-origin: content-box;
   background-position: center center;
   background-repeat: no-repeat;
+  background-size: contain;
   height: 80px;
   width: 95px;
 `;
@@ -114,11 +136,15 @@ const CartItem = () => {
     <ItemContainer>
       <DeleteItem></DeleteItem>
       <ItemTotalPrice>R$ 5.000,00</ItemTotalPrice>
+      <Counter />
       <ItemDetails>
-        <ItemDetailsText>
-          <ItemTitle>Celular Apple iPhone com dois sims e 64 GB, além de duas câmeras</ItemTitle>
+        <ItemText>
+          <ItemTitle>
+            Celular Apple iPhone com dois sims e 64 GB, além de duas câmeras e
+            tela retina OLED incluso muitos aplicativos massa
+          </ItemTitle>
           <ItemPrice>R$ 5.000,00</ItemPrice>
-        </ItemDetailsText>
+        </ItemText>
         <ItemImage />
       </ItemDetails>
     </ItemContainer>

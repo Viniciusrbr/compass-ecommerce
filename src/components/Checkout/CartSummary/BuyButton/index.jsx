@@ -15,7 +15,7 @@ const ButtonContainer = styled.button`
   align-items: center;
   gap: var(--spacing-lg, 8px);
   align-self: stretch;
-  margin: 16px 0;
+  margin: 0;
   width: 250px;
 
   p {

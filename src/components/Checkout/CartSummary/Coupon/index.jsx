@@ -17,7 +17,7 @@ const CouponContainer = styled.div`
   gap: var(--spacing-lg, 8px);
   height: 61px;
   margin: 0;
-  padding: 16px 0 0 0;
+  padding: 0;
   width: 250px;
 `;
 

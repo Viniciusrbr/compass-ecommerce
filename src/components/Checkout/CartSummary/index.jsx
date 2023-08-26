@@ -4,22 +4,23 @@ import BuyButton from "./BuyButton";
 
 const colors = {
   aqua: "#62D0B6",
+  snow: "#EEEEEE",
   lightGray: "#666666",
   mediumGray: "#333333",
-  darkGray: "#",
 };
 
 const CartSummaryContainer = styled.div`
+  align-items: flex-end;
   border-radius: 4px;
   border: 1px solid #eee;
   background: #fff;
   display: flex;
-  width: 282px;
-  height: 368px;
+  height: 336px;
   padding: var(--spacing-xl, 16px);
   flex-direction: column;
-  align-items: flex-end;
+  gap: var(--spacing-xl, 16px);
   flex-shrink: 0;
+  width: 250px;
 
   h1 {
     align-self: stretch;
@@ -31,7 +32,7 @@ const CartSummaryContainer = styled.div`
     font-weight: 500;
     height: 25px;
     line-height: 25px;
-    margin: 16px 0;
+    margin: 0;
     width: 250px;
   }
 `;
@@ -69,6 +70,11 @@ const SummaryPrice = styled.div`
   }
 `;
 
+const Spacer = styled.div`
+  border-bottom: 1px solid ${colors.snow};
+  width: 250px;
+`;
+
 const CartSummary = () => {
   return (
     <CartSummaryContainer>
@@ -78,6 +84,7 @@ const CartSummary = () => {
         <p className="summarylabel">Total</p>
       </SummaryPrice>
       <Coupon />
+      <Spacer />
       <BuyButton />
     </CartSummaryContainer>
   );

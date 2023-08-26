@@ -1,6 +1,7 @@
 import './App.css'
 import { Fragment } from 'react'
 import { createGlobalStyle } from 'styled-components'
+import Theme from './Theme';
 import HomePage from './pages/HomePage'
 import CartPage from './pages/CartPage'
 
@@ -14,11 +15,11 @@ const GlobalStyle = createGlobalStyle`
 
 function App() {
   return (
-    <>
+    <Theme>
       <GlobalStyle />
       <CartPage />
-    </>
-  )
-}
+    </Theme>
+  );
+};
 
 export default App
