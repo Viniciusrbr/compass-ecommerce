@@ -98,18 +98,19 @@ const ProductCard = styled.div`
   width: 282px;
 `;
 
-const ProductImage = styled.img`
+const ProductImage = styled.div`
+  align-self: stretch;
   border-radius: 4px 4px 0px 0px;
-  background: url(<path-to-image>);
+  background-image: ${(props) => `url(${props.image})`};
   background-origin: content-box;
-  background-position: center center;
+
   background-repeat: no-repeat;
   background-size: contain;
-  flex: 1 0 0;
-  align-self: stretch;
   height: 282px;
+
+  padding: 16px;
   width: 282px;
-`;
+  `
 
 const ProductContent = styled.div`
   display: flex;
@@ -268,9 +269,8 @@ function ProductsContainer() {
         {products.map((product) => (
           <ProductCard key={product.id}>
             <Link to={`/productDetails/${product.id}`}>
-              <ProductImage src={product.image} alt={product.title} />
+              <ProductImage image={product?.image} alt={product.title} />
             </Link>
-
             <ProductContent>
               <ProductInformation>
                 <Link to={`/productDetails/${product.id}`}>
