@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useCart } from "../../store/CartContext";
 import axios from "axios";
 import cartIconBlack from "../../assets/icons/cart-icon-black.svg";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   margin-top: 82px;
@@ -137,22 +138,23 @@ function ProductsContainer() {
       <ProductsSection>
         {products.map((product) => (
           <ProductCard key={product.id}>
-
-            <ProductImage src={product.image} alt={product.title} />
+            <Link to={`/productDetails/${product.id}`}>
+              <ProductImage src={product.image} alt={product.title} />
+            </Link>
 
             <ProductInformation>
-              <h2>{product.title}</h2>
+              <Link to={`/productDetails/${product.id}`}>
+                <h2>{product.title}</h2>
+              </Link>
+              
               <p>por R$ {product.price.toFixed(2)}</p>
             </ProductInformation>
 
             <CardButtons>
-
-
               <button onClick={() => addToCart(product)}>
                 Carrinho <img src={cartIconBlack} alt="" />
               </button>
             </CardButtons>
-
           </ProductCard>
         ))}
       </ProductsSection>
