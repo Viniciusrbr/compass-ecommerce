@@ -17,11 +17,7 @@ const RoundedIcon = styled.img`
   height: 24px;
 `;
 
-<<<<<<< HEAD
-const RegularIcon = styled.img`
-=======
 const LogoIcon = styled.img`
->>>>>>> c174f967d40cecfde9ca6d981686340b5d158e4c
   width: 44px;
   height: 44px;
 `;
@@ -73,7 +69,7 @@ const WelcomeText = styled.div`
   }
   h1 {
     margin: 0;
-    color: var(--primary-color);
+    color: var(--jet);
     font-size: 16px;
     font-weight: 400;
   }
@@ -129,13 +125,9 @@ const Header = () => {
         <SearchInput type="text" placeholder="Buscar" />
       </SearchContainer>
 
-<<<<<<< HEAD
-      <RegularIcon src={siteLogo} alt="Logo" />
-=======
       <Link to="/">
         <LogoIcon src={siteLogo} alt="Logo" />
       </Link>
->>>>>>> c174f967d40cecfde9ca6d981686340b5d158e4c
     </HeaderContainer>
   );
 };
