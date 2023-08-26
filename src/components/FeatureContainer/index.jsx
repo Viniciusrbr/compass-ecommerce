@@ -16,11 +16,8 @@ const DivContainer = styled.div`
   border: 1px solid #eee;
   display: flex;
   align-items: center; 
-<<<<<<< HEAD
   gap: 16px;
   width: 335px;
-=======
->>>>>>> 1b8f60b8ef2a2aa4d769054650803d898bdd3cbc
 `;
 
 const Content = styled.div`
@@ -34,14 +31,10 @@ const Content = styled.div`
 `;
 
 const Title = styled.p`
-<<<<<<< HEAD
   color: #333;
   text-align: right;
-=======
   margin-top: 0;
-  text-align: right; 
   margin-bottom: 1px;
->>>>>>> 1b8f60b8ef2a2aa4d769054650803d898bdd3cbc
   font-family: Roboto Mono;
   font-size: 20px;
   font-weight: 400;
