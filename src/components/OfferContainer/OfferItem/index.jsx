@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import api from "../../../services/api";
 import styled from "styled-components";
 import Theme from "../../../Theme";
-import Tag from "../../Tag/index";
+import TagDiscount from "../../TagDiscount/index";
 import Countdown from "../../Countdown/index";
 import CartIcon from "../../../assets/icons/cart.svg";
 
@@ -358,7 +358,7 @@ const OfferItem = () => {
         </ButtonContainer>
       </OfferItemDetails>
       <OfferItemImage image={product?.image}>
-        <Tag />
+        <TagDiscount />
       </OfferItemImage>
     </OfferItemContainer>
   );

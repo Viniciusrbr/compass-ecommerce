@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useCart } from "../../store/CartContext";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import TagNew from "../TagNew/index";
+import ProductTag from "../ProductTag/index";
 
 const Container = styled.div`
   display: inline-flex;
@@ -354,7 +354,7 @@ function ProductsContainer() {
               <ProductImage image={product?.image} alt={product.title}>
               </ProductImage>
             </Link>
-            <TagNew />
+            <ProductTag situation={product.category}></ProductTag>
             <ProductContent>
               <ProductInformation>
                 <Link to={`/productDetails/${product.id}`}>
