@@ -1,7 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import api from "../../../services/api";
 import styled from "styled-components";
-import Theme from "../../../Theme";
 import TagDiscount from "../../TagDiscount/index";
 import Countdown from "../../Countdown/index";
 import CartIcon from "../../../assets/icons/cart.svg";
@@ -259,7 +258,7 @@ const ButtonAddToCart = styled.button`
   width: 302px;
 
   &:hover {
-    background: ${colors.aquaHover};
+    background: var(--tiffanyBlue);
   }
 
   p {
@@ -358,7 +357,7 @@ const OfferItem = () => {
         </ButtonContainer>
       </OfferItemDetails>
       <OfferItemImage image={product?.image}>
-        <TagDiscount />
+        <TagDiscount discount={product?.id} />
       </OfferItemImage>
     </OfferItemContainer>
   );

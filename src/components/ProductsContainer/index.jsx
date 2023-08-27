@@ -249,7 +249,14 @@ const ButtonAddToCart = styled.button`
 
   &:hover {
     background: var(--turquoise);
-    text-color: white;
+
+    p {
+      color: var(--white);
+    }
+
+    path {
+      fill: var(--white);
+    }
   }
 
   p {
@@ -265,10 +272,6 @@ const ButtonAddToCart = styled.button`
     padding: 0;
     width: 62px;
 
-    &:hover {
-      color: var(--white);
-  }
-
   div {
     display: flex;
     width: 16px;
@@ -276,8 +279,6 @@ const ButtonAddToCart = styled.button`
     padding: 1.222px 1.229px 1.333px 1.193px;
     justify-content: center;
     align-items: center;
-    height: 13px;
-    width: 13px;
   }
 `;
 
@@ -335,6 +336,8 @@ function ProductsContainer() {
     HeartIcon.myColor = "#42f785";
   }
 
+  const randomDiscount = 25;
+
   return (
     <Container>
       <ProductsHeader>
@@ -351,10 +354,12 @@ function ProductsContainer() {
         {products.map((product) => (
           <ProductCard key={product.id}>
             <Link to={`/productDetails/${product.id}`}>
-              <ProductImage image={product?.image} alt={product.title}>
-              </ProductImage>
+              <ProductImage
+                image={product?.image}
+                alt={product.title}
+              ></ProductImage>
             </Link>
-            <ProductTag situation={product.category}></ProductTag>
+            <ProductTag situation={product.category} discount={product?.id}></ProductTag>
             <ProductContent>
               <ProductInformation>
                 <Link to={`/productDetails/${product.id}`}>
@@ -379,7 +384,7 @@ function ProductsContainer() {
                 <ButtonAddToCart onClick={() => addToCart(product)}>
                   <p>Carrinho</p>
                   <div>
-                    <CartIcon cartColor="A5A5A5" />
+                    <CartIcon cartColor="#333333" />
                   </div>
                 </ButtonAddToCart>
               </CardButtons>

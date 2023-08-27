@@ -54,10 +54,10 @@ const TagTriangle = styled.div`
     transform: rotate(90deg);
 `
 
-const TagDiscount = () => {
+const TagDiscount = ({ discount }) => {
     return (
         <TagShape>
-        <TagRectangle><p>25% OFF</p><TagTriangle/></TagRectangle>
+        <TagRectangle><p>{discount}% OFF</p><TagTriangle/></TagRectangle>
         </TagShape>
     );
 };
