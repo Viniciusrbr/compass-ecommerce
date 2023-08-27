@@ -47,7 +47,7 @@ const CouponInput = styled.div`
   padding: 0px !important;
   width: 100%;
 
-  p.couponinput {
+  input.couponinput {
     color: ${colors.mediumGray};
     flex: 1 0 0;
     font-family: Roboto Flex;
@@ -59,6 +59,9 @@ const CouponInput = styled.div`
     margin-right: 12px;
     text-align: right;
     width: 146px;
+
+    border: none;
+    outline: none;
   }
 `;
 
@@ -89,7 +92,11 @@ const Coupon = () => {
       <CouponLabel>Possui um código de desconto?</CouponLabel>
       <CouponInput>
         <CouponButton>CUPOM</CouponButton>
-        <p className="couponinput">Código de desconto</p>
+        <input
+          type="text"
+          placeholder="Código de desconto"
+          className="couponinput"
+        ></input>
       </CouponInput>
     </CouponContainer>
   );
