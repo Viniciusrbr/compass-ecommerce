@@ -23,11 +23,13 @@ const LogoIcon = styled.img`
 `;
 
 const HeaderContainer = styled.header`
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 32px 200px;
   gap: 40px;
+  width: 1600px;
 `;
 
 const CartButton = styled.button`
@@ -67,7 +69,7 @@ const WelcomeText = styled.div`
   }
   h1 {
     margin: 0;
-    color: #333;
+    color: var(--mikadoYellow);
     font-size: 16px;
     font-weight: 400;
   }

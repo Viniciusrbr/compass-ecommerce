@@ -9,6 +9,7 @@ const ItemsContainer = styled.div`
   flex: 1 0 0;
   height: 368px;
   width: 894px;
+  
 `;
 
 const ItemList = ({ items }) => {

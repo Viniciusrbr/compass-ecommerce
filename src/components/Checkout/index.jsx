@@ -11,6 +11,7 @@ const ContentContainer = styled.div`
   gap: var(--spacing-2-xl, 24px);
   flex-shrink: 0;
   padding: 0 200px;
+  overflow: scroll;
 `;
 
 const Checkout = () => {

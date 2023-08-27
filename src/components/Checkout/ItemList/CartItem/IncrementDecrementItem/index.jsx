@@ -33,6 +33,7 @@ const DecreaseButton = styled.button`
   height: 50px;
   margin: 0;
   width: 48px;
+  cursor: pointer;
 `;
 
 const ItemQuantity = styled.div`
@@ -73,6 +74,7 @@ const IncreaseButton = styled.button`
   height: 50px;
   margin: 0;
   width: 48px !important;
+  cursor: pointer;
 `;
 
 const ItemCounter = ({ item }) => {

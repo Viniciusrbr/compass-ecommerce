@@ -22,7 +22,7 @@ const CartSummaryContainer = styled.div`
   gap: var(--spacing-xl, 16px);
   flex-shrink: 0;
   width: 250px;
-
+  
   h1 {
     align-self: stretch;
     color: ${colors.mediumGray};

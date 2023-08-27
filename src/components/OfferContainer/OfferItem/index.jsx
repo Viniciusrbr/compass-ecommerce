@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import api from "../../../services/api";
 import styled from "styled-components";
+import Theme from "../../../Theme";
 import Tag from "../../Tag/index";
 import Countdown from "../../Countdown/index";
 import CartIcon from "../../../assets/icons/cart.svg";
@@ -17,7 +18,7 @@ const colors = {
   white: "#FFFFFF",
 };
 
-const HeartIcon = ({myColor}) => (
+const HeartIcon = ({ myColor }) => (
   <svg
     width="18"
     height="16"
@@ -37,9 +38,9 @@ const HeartIcon = ({myColor}) => (
 
 const OfferItemContainer = styled.div`
   align-items: flex-start;
-  background: ${colors.white};
+
   border-radius: var(--radius-sm, 4px);
-  border: 2px solid ${colors.aqua};
+  border: 2px solid gray;
   display: flex;
   flex: 1 0 0;
   height: 271px;
@@ -145,26 +146,40 @@ const OfferItemRatingStars = styled.div`
   width: 73px;
 `;
 
-const StarIcon = ({myFill}) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14" 
-  fill="none">
-  <path d="M12.9814 5.50829C12.9366 5.3704 12.8174 5.2699 12.674 5.24908L8.6439 4.66345L6.84156 1.01161C6.77742 0.881607 6.64501 0.799316 6.50005 0.799316C6.35507 0.799316 6.22269 0.881607 6.15852 1.01161L4.3561 4.66345L0.326118 5.24908C0.182687 5.2699 0.0634781 5.3704 0.0186892 5.50827C-0.0261251 5.64616 0.0112498 5.79752 0.115072 5.8987L3.03112 8.74127L2.34284 12.7551C2.31831 12.898 2.37706 13.0423 2.49434 13.1276C2.56069 13.1758 2.63927 13.2003 2.71824 13.2003C2.77887 13.2003 2.8397 13.1859 2.89541 13.1566L6.50003 11.2615L10.1045 13.1565C10.2328 13.224 10.3883 13.2128 10.5056 13.1276C10.6229 13.0423 10.6816 12.8979 10.6571 12.755L9.96863 8.74127L12.885 5.89867C12.9888 5.79752 13.0262 5.64616 12.9814 5.50829Z" 
-  fill={myFill}/>
-</svg>
+const StarIcon = ({ myFill }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="13"
+    height="14"
+    viewBox="0 0 13 14"
+    fill="none"
+  >
+    <path
+      d="M12.9814 5.50829C12.9366 5.3704 12.8174 5.2699 12.674 5.24908L8.6439 4.66345L6.84156 1.01161C6.77742 0.881607 6.64501 0.799316 6.50005 0.799316C6.35507 0.799316 6.22269 0.881607 6.15852 1.01161L4.3561 4.66345L0.326118 5.24908C0.182687 5.2699 0.0634781 5.3704 0.0186892 5.50827C-0.0261251 5.64616 0.0112498 5.79752 0.115072 5.8987L3.03112 8.74127L2.34284 12.7551C2.31831 12.898 2.37706 13.0423 2.49434 13.1276C2.56069 13.1758 2.63927 13.2003 2.71824 13.2003C2.77887 13.2003 2.8397 13.1859 2.89541 13.1566L6.50003 11.2615L10.1045 13.1565C10.2328 13.224 10.3883 13.2128 10.5056 13.1276C10.6229 13.0423 10.6816 12.8979 10.6571 12.755L9.96863 8.74127L12.885 5.89867C12.9888 5.79752 13.0262 5.64616 12.9814 5.50829Z"
+      fill={myFill}
+    />
+  </svg>
 );
 
 const StarIconHalfFilled = () => {
-  <svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14" 
-  fill="none">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="13"
+    height="14"
+    viewBox="0 0 13 14"
+    fill="none"
+  >
     <defs>
-    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="50%" style="stop-color:rgb(255,198,42);stop-opacity:1" />
-      <stop offset="50%" style="stop-color:rgb(255,255,255);stop-opacity:1" />
-    </linearGradient>
-  </defs>
-  <path d="M12.9814 5.50829C12.9366 5.3704 12.8174 5.2699 12.674 5.24908L8.6439 4.66345L6.84156 1.01161C6.77742 0.881607 6.64501 0.799316 6.50005 0.799316C6.35507 0.799316 6.22269 0.881607 6.15852 1.01161L4.3561 4.66345L0.326118 5.24908C0.182687 5.2699 0.0634781 5.3704 0.0186892 5.50827C-0.0261251 5.64616 0.0112498 5.79752 0.115072 5.8987L3.03112 8.74127L2.34284 12.7551C2.31831 12.898 2.37706 13.0423 2.49434 13.1276C2.56069 13.1758 2.63927 13.2003 2.71824 13.2003C2.77887 13.2003 2.8397 13.1859 2.89541 13.1566L6.50003 11.2615L10.1045 13.1565C10.2328 13.224 10.3883 13.2128 10.5056 13.1276C10.6229 13.0423 10.6816 12.8979 10.6571 12.755L9.96863 8.74127L12.885 5.89867C12.9888 5.79752 13.0262 5.64616 12.9814 5.50829Z" 
-  fill="url(#grad1)"/>
-</svg>
+      <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="50%" style="stop-color:rgb(255,198,42);stop-opacity:1" />
+        <stop offset="50%" style="stop-color:rgb(255,255,255);stop-opacity:1" />
+      </linearGradient>
+    </defs>
+    <path
+      d="M12.9814 5.50829C12.9366 5.3704 12.8174 5.2699 12.674 5.24908L8.6439 4.66345L6.84156 1.01161C6.77742 0.881607 6.64501 0.799316 6.50005 0.799316C6.35507 0.799316 6.22269 0.881607 6.15852 1.01161L4.3561 4.66345L0.326118 5.24908C0.182687 5.2699 0.0634781 5.3704 0.0186892 5.50827C-0.0261251 5.64616 0.0112498 5.79752 0.115072 5.8987L3.03112 8.74127L2.34284 12.7551C2.31831 12.898 2.37706 13.0423 2.49434 13.1276C2.56069 13.1758 2.63927 13.2003 2.71824 13.2003C2.77887 13.2003 2.8397 13.1859 2.89541 13.1566L6.50003 11.2615L10.1045 13.1565C10.2328 13.224 10.3883 13.2128 10.5056 13.1276C10.6229 13.0423 10.6816 12.8979 10.6571 12.755L9.96863 8.74127L12.885 5.89867C12.9888 5.79752 13.0262 5.64616 12.9814 5.50829Z"
+      fill="url(#grad1)"
+    />
+  </svg>;
 };
 
 const OfferItemPrices = styled.div`
@@ -280,20 +295,30 @@ const OfferItem = () => {
     setFavorited(!isFavorited);
   };
   if (isFavorited) {
-    HeartIcon.myColor = "#FFFFFF";
+    HeartIcon.myColor = "#42f785";
   }
 
   const [product, setProduct] = useState();
-    useEffect(() => {
-      api
-      .get("/products/2")
+  useEffect(() => {
+    api
+      .get("/products/9")
       .then((response) => setProduct(response.data))
-      .catch(error => console.log(error));
-    });
+      .catch((error) => console.log(error));
+  });
 
-    const transCurrency = function(locale, currency, amount) {
-      return new Intl.NumberFormat(locale, {style: 'currency', currency: 'pt-BR'}).format(amount);
-    };
+  let localizedPrice = new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+    minimumFractionDigits: 2,
+  });
+
+  const [discount, setDiscount] = useState(0);
+
+  function getRandomDiscount(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min);
+  };
 
   return (
     <OfferItemContainer>
@@ -315,7 +340,6 @@ const OfferItem = () => {
           </OfferItemRating>
           <OfferItemPrices>
             <OfferItemFullPrice>de R$ {product?.price}</OfferItemFullPrice>
-            <StarIconHalfFilled/>
             <OfferItemDiscountedPrice>por R$ 780,00</OfferItemDiscountedPrice>
           </OfferItemPrices>
         </OfferItemTextInfo>

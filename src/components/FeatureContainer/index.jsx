@@ -33,6 +33,8 @@ const Content = styled.div`
 const Title = styled.p`
   color: #333;
   text-align: right;
+  margin-top: 0;
+  margin-bottom: 1px;
   font-family: Roboto Mono;
   font-size: 20px;
   font-weight: 400;
