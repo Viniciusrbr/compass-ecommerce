@@ -333,10 +333,8 @@ function ProductsContainer() {
     setFavorited(!isFavorited);
   };
   if (isFavorited) {
-    HeartIcon.myColor = "#42f785";
+    HeartIcon.myColor = "#9af785";
   }
-
-  const randomDiscount = 25;
 
   return (
     <Container>
@@ -367,9 +365,9 @@ function ProductsContainer() {
                 </Link>
 
                 <ProductPrices>
-                  <p className="fullPrice">de R$ {product.price.toFixed(2)}</p>
+                  <p className="fullPrice">de R$ {product.price.toLocaleString('pt-BR')}</p>
                   <p className="discountedPrice">
-                    por R$ {product.price.toFixed(2)}
+                    por R$ {product.price.toLocaleString('pt-BR')}
                   </p>
                 </ProductPrices>
               </ProductInformation>
