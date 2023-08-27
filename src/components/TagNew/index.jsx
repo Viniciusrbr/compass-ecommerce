@@ -1,44 +1,36 @@
 import styled from "styled-components";
 
-const colors = {
-    aqua: "#62D0B6",
-    white: "#FFFFFF"
-  };
-
-const fonts = {
-    robotoFlex: "Roboto Flex",
-  };
-
 const TagShape = styled.div`
     display: flex;
     flex-direction: column;
-    left: 0;
+    left: 16px;
     margin: 0;
-    position: relative;
-    top: 0;
+    position: absolute;
+    top: 16px;
 `
 
 const TagRectangle = styled.div`
     align-items: center;
-    background: ${colors.aqua};
+    background: var(--turquoise);
     border-radius: 2px;
     display: flex;
     gap: 10px;
     height: 30px;
     justify-content: center;
-    width: 67px;
+    text-decoration: none;
+    width: 55px;
 
 p {
-    color: ${colors.white};
-    display: inline-block;
+    color: var(--white);
     font-family: Roboto Flex;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
-    height: 16px;
     line-height: normal;
+    margin: 0;
+    padding: 0;
     text-align: center;
-    width: 58px !important;
+    text-decoration: none;
 }
 `
 
@@ -47,8 +39,8 @@ const TagTriangle = styled.div`
     height: 0;
     border-style: solid;
     border-width: 0 6px 9px 6px;
-    border-color: transparent transparent ${colors.aqua} transparent;
-    left: 64px;
+    border-color: transparent transparent var(--turquoise) transparent;
+    left: 49px;
     position: absolute;
     transform: rotate(90deg);
 `
@@ -56,7 +48,7 @@ const TagTriangle = styled.div`
 const TagNew = () => {
     return (
         <TagShape>
-        <TagRectangle><p>25% OFF</p><TagTriangle/></TagRectangle>
+        <TagRectangle><p>Novo</p><TagTriangle/></TagRectangle>
         </TagShape>
     );
 };

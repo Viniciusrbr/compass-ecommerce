@@ -11,12 +11,12 @@ const fonts = {
   };
 
 const TagShape = styled.div`
-    display: flex;
-    flex-direction: column;
-    left: 0;
-    margin: 0;
-    position: relative;
-    top: 0;
+display: flex;
+flex-direction: column;
+left: 16px;
+margin: 0;
+position: absolute;
+top: 16px;
 `
 
 const TagRectangle = styled.div`
@@ -54,7 +54,7 @@ const TagTriangle = styled.div`
     transform: rotate(90deg);
 `
 
-const Tag = () => {
+const TagDiscount = () => {
     return (
         <TagShape>
         <TagRectangle><p>25% OFF</p><TagTriangle/></TagRectangle>
@@ -62,4 +62,4 @@ const Tag = () => {
     );
 };
 
-export default Tag
+export default TagDiscount

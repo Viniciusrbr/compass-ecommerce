@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import api from "../../../services/api";
 import styled from "styled-components";
 import Theme from "../../../Theme";
-import Tag from "../../Tag/index";
+import TagDiscount from "../../TagDiscount/index";
 import Countdown from "../../Countdown/index";
 import CartIcon from "../../../assets/icons/cart.svg";
 
@@ -38,9 +38,9 @@ const HeartIcon = ({ myColor }) => (
 
 const OfferItemContainer = styled.div`
   align-items: flex-start;
-
+  background-color: white;
   border-radius: var(--radius-sm, 4px);
-  border: 2px solid gray;
+  border: 2px solid #62D0B6;
   display: flex;
   flex: 1 0 0;
   height: 271px;
@@ -339,8 +339,8 @@ const OfferItem = () => {
             </OfferItemRatingStars>
           </OfferItemRating>
           <OfferItemPrices>
-            <OfferItemFullPrice>de R$ {product?.price}</OfferItemFullPrice>
-            <OfferItemDiscountedPrice>por R$ 780,00</OfferItemDiscountedPrice>
+            <OfferItemFullPrice>de R$ {product?.price.toFixed(2)}</OfferItemFullPrice>
+            <OfferItemDiscountedPrice>por R$ {product?.price.toFixed(2)}</OfferItemDiscountedPrice>
           </OfferItemPrices>
         </OfferItemTextInfo>
         <Countdown />
@@ -358,7 +358,7 @@ const OfferItem = () => {
         </ButtonContainer>
       </OfferItemDetails>
       <OfferItemImage image={product?.image}>
-        <Tag />
+        <TagDiscount />
       </OfferItemImage>
     </OfferItemContainer>
   );
