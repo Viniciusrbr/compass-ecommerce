@@ -103,12 +103,18 @@ const SearchInput = styled.input`
 const Header = () => {
   const { cart } = useCart();
 
+  const calculateTotalQuantity = () => {
+    return cart.reduce((total, item) => {
+      return total + item.quantity;
+    }, 0);
+  };
+
   return (
     <HeaderContainer>
       <CartButton>
         <Link to="/cart">
           <RoundedIcon src={cartIcon} alt="Cart" />
-          <span>{cart.length}</span>
+          <span>{calculateTotalQuantity()}</span>
         </Link>
       </CartButton>
 

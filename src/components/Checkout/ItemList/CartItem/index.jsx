@@ -1,8 +1,8 @@
-import { useContext } from 'react';
 import styled from "styled-components";
-import Theme from "../../../../Theme";
-import iPhone from "../../../../assets/images/iPhone.png";
+import { useCart } from "../../../../store/CartContext";
 import Counter from "./IncrementDecrementItem/index";
+import deleteIcon from "../../../../assets/icons/delete.svg";
+
 
 const ItemContainer = styled.div`
   border-radius: var(--radius-sm, 4px);
@@ -15,6 +15,17 @@ const ItemContainer = styled.div`
   align-self: stretch;
   height: 80px;
   width: 862px;
+
+  .deleteButton {
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 16px;
+    background-image: url(${deleteIcon});
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    border: none;
+  }
 `;
 
 const IconContainer = styled.div`
@@ -25,24 +36,6 @@ const IconContainer = styled.div`
   align-items: center;
   gap: 10px;
 `;
-
-const DeleteItem = () => (
-  <svg
-    width="12"
-    height="13"
-    viewBox="0 0 12 13"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <g id="Icons/Cancel">
-      <path
-        id="Vector"
-        d="M2.19526 3.96278C1.93491 3.70243 1.93491 3.28032 2.19526 3.01997C2.45562 2.75962 2.87772 2.75962 3.13807 3.01997L5.99999 5.88189L8.86189 3.01997C9.12225 2.75962 9.54438 2.75962 9.80473 3.01997C10.0651 3.28032 10.0651 3.70243 9.80473 3.96278L6.94279 6.8247L9.80473 9.6866C10.0651 9.94695 10.0651 10.3691 9.80473 10.6294C9.54438 10.8898 9.12225 10.8898 8.86189 10.6294L5.99999 7.76749L3.13807 10.6294C2.87772 10.8898 2.45562 10.8898 2.19526 10.6294C1.93491 10.3691 1.93491 9.94695 2.19526 9.6866L5.05718 6.8247L2.19526 3.96278Z"
-        fill="#444444"
-      />
-    </g>
-  </svg>
-);
 
 const ItemTotalPrice = styled.p`
   color: (var--jet);
@@ -111,33 +104,34 @@ const ItemPrice = styled.p`
   width: 357px;
 `;
 
-const ItemImage = styled.div`
+const ItemImage = styled.img`
   border-radius: var(--radius-sm, 4px);
   border: (var--antiFlashWhite);
-  background-image: url(${iPhone});
-  background-origin: content-box;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: contain;
   height: 80px;
   width: 95px;
 `;
 
-const CartItem = () => {
+const CartItem = ({ item }) => {
+  const { dispatch } = useCart();
+
+  const handleRemoveItem = () => {
+    dispatch({ type: "REMOVE_FROM_CART", payload: item.id });
+  };
+
   return (
     <ItemContainer>
-      <DeleteItem></DeleteItem>
-      <ItemTotalPrice>R$ 5.000,00</ItemTotalPrice>
-      <Counter />
+      <button onClick={handleRemoveItem} className="deleteButton"></button>
+      
+      <ItemTotalPrice>
+        R$ {(item.price * item.quantity).toFixed(2)}
+      </ItemTotalPrice>
+      <Counter item={item} />
       <ItemDetails>
         <ItemText>
-          <ItemTitle>
-            Celular Apple iPhone com dois sims e 64 GB, além de duas câmeras e
-            tela retina OLED incluso muitos aplicativos massa
-          </ItemTitle>
-          <ItemPrice>R$ 5.000,00</ItemPrice>
+          <ItemTitle>{item.title}</ItemTitle>
+          <ItemPrice>R$ {item.price.toFixed(2)}</ItemPrice>
         </ItemText>
-        <ItemImage />
+        <ItemImage src={item.image} />
       </ItemDetails>
     </ItemContainer>
   );

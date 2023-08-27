@@ -9,15 +9,15 @@ const ItemsContainer = styled.div`
   flex: 1 0 0;
   height: 368px;
   width: 894px;
+  
 `;
 
-const ItemList = () => {
+const ItemList = ({ items }) => {
   return (
     <ItemsContainer>
-      <CartItem></CartItem>
-      <CartItem></CartItem>
-      <CartItem></CartItem>
-      <CartItem></CartItem>
+      {items.map((item) => (
+        <CartItem key={item.id} item={item} />
+      ))}
     </ItemsContainer>
   );
 };

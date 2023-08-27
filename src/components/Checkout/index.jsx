@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Theme from "../../Theme";
+import { useCart } from "../../store/CartContext"
 import CartSummary from "./CartSummary/index";
 import ItemList from "./ItemList/index";
 
@@ -11,13 +11,16 @@ const ContentContainer = styled.div`
   gap: var(--spacing-2-xl, 24px);
   flex-shrink: 0;
   padding: 0 200px;
+  overflow: scroll;
 `;
 
 const Checkout = () => {
+  const { cart } = useCart(); // Pega a lista de produtos do carrinho
+
   return (
     <ContentContainer>
       <CartSummary />
-      <ItemList />
+      <ItemList items={cart} />
     </ContentContainer>
   );
 };

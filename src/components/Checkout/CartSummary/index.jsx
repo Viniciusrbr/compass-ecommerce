@@ -1,7 +1,7 @@
-import { useContext } from 'react';
 import styled from "styled-components";
 import Coupon from "./Coupon/index";
 import BuyButton from "./BuyButton";
+import { useCart } from "../../../store/CartContext";
 
 const colors = {
   aqua: "#62D0B6",
@@ -22,7 +22,7 @@ const CartSummaryContainer = styled.div`
   gap: var(--spacing-xl, 16px);
   flex-shrink: 0;
   width: 250px;
-
+  
   h1 {
     align-self: stretch;
     color: ${colors.mediumGray};
@@ -77,11 +77,19 @@ const Spacer = styled.div`
 `;
 
 const CartSummary = () => {
+  const { cart } = useCart();
+
+  const totalPrice = () => {
+    return cart.reduce((total, item) => {
+      return total + item.price * item.quantity;
+    }, 0);
+  };
   return (
     <CartSummaryContainer>
       <h1>Resumo do pedido</h1>
       <SummaryPrice>
-        <p className="pricetotal">R$ 6.000,00</p>
+        <p className="pricetotal">R$ {totalPrice().toFixed(2)}</p>
+
         <p className="summarylabel">Total</p>
       </SummaryPrice>
       <Coupon />

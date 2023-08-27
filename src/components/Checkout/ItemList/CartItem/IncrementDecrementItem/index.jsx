@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import MinusIcon from "../../../../../assets/icons/minus.svg";
 import PlusIcon from "../../../../../assets/icons/plus.svg";
+import { useState } from "react";
+import { useCart } from "../../../../../store/CartContext";
 
 const colors = {
   lightGray: "#EEEEEE",
@@ -31,6 +33,7 @@ const DecreaseButton = styled.button`
   height: 50px;
   margin: 0;
   width: 48px;
+  cursor: pointer;
 `;
 
 const ItemQuantity = styled.div`
@@ -71,16 +74,38 @@ const IncreaseButton = styled.button`
   height: 50px;
   margin: 0;
   width: 48px !important;
+  cursor: pointer;
 `;
 
-const ItemCounter = () => {
+const ItemCounter = ({ item }) => {
+  const [quantity, setQuantity] = useState(item.quantity || 1);
+  const { dispatch } = useCart();
+
+  const handleIncrease = () => {
+    setQuantity(quantity + 1);
+    dispatch({
+      type: "UPDATE_QUANTITY",
+      payload: { id: item.id, quantity: quantity + 1 },
+    });
+  };
+
+  const handleDecrease = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+      dispatch({
+        type: "UPDATE_QUANTITY",
+        payload: { id: item.id, quantity: quantity - 1 },
+      });
+    }
+  };
+
   return (
     <Counter>
-      <DecreaseButton />
+      <DecreaseButton onClick={handleDecrease}></DecreaseButton>
       <ItemQuantity>
-        <p>1</p>
+        <p>{item.quantity}</p>
       </ItemQuantity>
-      <IncreaseButton />
+      <IncreaseButton onClick={handleIncrease}></IncreaseButton>
     </Counter>
   );
 };
