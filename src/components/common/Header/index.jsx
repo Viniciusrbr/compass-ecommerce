@@ -18,7 +18,7 @@ const CartProfileContainer = styled.div`
 const CartIconContainer = styled.div`
   align-self: stretch;
   box-sizing: border-box;
-  color: var(--dimGray)
+  color: var(--dimGray);
   display: flex;
   width: 24px;
   height: 24px;
@@ -27,7 +27,7 @@ const CartIconContainer = styled.div`
   justify-content: center;
   align-items: center;
 
-   img {
+  img {
     background-image: ${cartIcon};
     background-origin: content-box;
     background-position: center center;
@@ -37,7 +37,7 @@ const CartIconContainer = styled.div`
     width: 20.367px;
     height: 20.167px;
     flex-shrink: 0;
-   }
+  }
 `;
 
 const RoundedIcon = styled.img`
@@ -62,7 +62,7 @@ const HeaderContainer = styled.header`
   padding: 32px 200px;
   gap: 40px;
   height: 109px;
-  width: 1600px;
+  //width: 1600px;
 `;
 
 const CartButton = styled.button`
@@ -141,7 +141,7 @@ const WelcomeText = styled.div`
 `;
 
 const SearchContainer = styled.div`
-align-self: stretch;
+  align-self: stretch;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -181,6 +181,8 @@ const Header = () => {
     }, 0);
   };
 
+  const totalQuantity = calculateTotalQuantity();
+
   return (
     <HeaderContainer>
       <CartProfileContainer>
@@ -188,9 +190,11 @@ const Header = () => {
           <Link to="/cart">
             <CartIconContainer>
               <img src={cartIcon}></img>
-              <CartItemCounter>
-                <p>{calculateTotalQuantity()}</p>
-              </CartItemCounter>
+              {totalQuantity >= 1 && (
+                <CartItemCounter>
+                  <p>{totalQuantity}</p>
+                </CartItemCounter>
+              )}
             </CartIconContainer>
           </Link>
         </CartButton>

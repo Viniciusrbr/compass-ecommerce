@@ -18,7 +18,8 @@ const BannerContainer = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 1600px;
+  //width: 1600px;
+
 `;
 
 const ContainerTexts = styled.div`

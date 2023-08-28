@@ -14,7 +14,6 @@ const ItemContainer = styled.div`
   gap: var(--spacing-3-xl, 32px);
   align-self: stretch;
   height: 80px;
-  width: 862px;
 
   .deleteButton {
     cursor: pointer;

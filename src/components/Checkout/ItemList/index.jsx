@@ -8,7 +8,7 @@ const ItemsContainer = styled.div`
   gap: var(--spacing-xl, 16px);
   flex: 1 0 0;
   height: 368px;
-  width: 894px;
+
   
 `;
 
