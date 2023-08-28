@@ -335,9 +335,9 @@ function ProductDetailsPage() {
 
         <ButtonsContainer>
           <PriceAmount>
-            <p>R$ {product.price.toFixed(2)}</p>
+            <p>{product.price.toLocaleString("pt-BR", {style:"currency", currency:"BRL", minimumFractionDigits: 2})}</p>
             <Counter item={product} quantity={product.quantity}>
-              <p>{product.quantity}</p>
+              {product.quantity}
               </Counter>
           </PriceAmount>
           <ButtonOptions>
