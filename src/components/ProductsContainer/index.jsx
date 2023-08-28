@@ -64,15 +64,22 @@ const SeeAllIcon = styled.div`
   align-items: center;
 `;
 
-const Arrow = () => (
-  <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g id="Icon">
-<path 
-id="Vector" 
-d="M6.64089 12.0002C6.46438 12.0002 6.28787 11.9322 6.15209 11.7961L0.870353 6.50352C0.748153 6.38107 0.666687 6.20419 0.666687 6.01371C0.666687 5.83684 0.734576 5.61915 0.870353 5.4967L6.15209 0.204085C6.42365 -0.0680284 6.85813 -0.0680284 7.12969 0.204085C7.40124 0.476199 7.40124 0.911581 7.12969 1.18369L2.30959 6.00011L7.12969 10.8301C7.40124 11.1022 7.40124 11.5376 7.12969 11.8097C6.99391 11.9322 6.8174 12.0002 6.64089 12.0002Z" 
-fill="#D0F1E9"/>
-</g>
-</svg>
+const Arrow = ({arrowColor}) => (
+  <svg
+    width="8"
+    height="12"
+    viewBox="0 0 8 12"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g id="Icon">
+      <path
+        id="Vector"
+        d="M6.64089 12.0002C6.46438 12.0002 6.28787 11.9322 6.15209 11.7961L0.870353 6.50352C0.748153 6.38107 0.666687 6.20419 0.666687 6.01371C0.666687 5.83684 0.734576 5.61915 0.870353 5.4967L6.15209 0.204085C6.42365 -0.0680284 6.85813 -0.0680284 7.12969 0.204085C7.40124 0.476199 7.40124 0.911581 7.12969 1.18369L2.30959 6.00011L7.12969 10.8301C7.40124 11.1022 7.40124 11.5376 7.12969 11.8097C6.99391 11.9322 6.8174 12.0002 6.64089 12.0002Z"
+        fill={arrowColor}
+      />
+    </g>
+  </svg>
 );
 
 const ContainerTitles = styled.div`
@@ -292,7 +299,7 @@ const ButtonAddToCart = styled.button`
   }
 
   p {
-    color: #333333;
+    color: var(--jet);
     text-align: center;
     font-family: Roboto Flex;
     font-size: 16px;
@@ -341,6 +348,34 @@ const CartIcon = ({ cartColor }) => (
   </svg>
 );
 
+const ArrowsSection = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-md, 4px);
+  align-self: stretch;
+  height: 46px;
+  width: 100%;
+`;
+
+const PageNavIcon = styled.button`
+border-radius: 30px;
+border: 1px solid var(--antiFlashWhite);
+background: var(--white);
+box-sizing: border-box;
+display: flex;
+width: 46px;
+height: 46px;
+padding: var(--spacing-lg, 8px);
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 10px;
+height: 46px;
+transform: ${props => props.forward ? "rotate(180deg)" : "rotate(0deg)"};
+width: 46px;
+`
+
 function ProductsContainer() {
   const { cart, dispatch } = useCart();
   const [products, setProducts] = useState([]);
@@ -373,8 +408,8 @@ function ProductsContainer() {
       <ProductsHeader>
         <SeeAllButton>
           <SeeAllIcon>
-            <Arrow />
-            </SeeAllIcon>
+            <Arrow arrowColor="var(--mintGreen)" />
+          </SeeAllIcon>
           <p>Ver Tudo</p>
         </SeeAllButton>
         <ContainerTitles>
@@ -432,6 +467,14 @@ function ProductsContainer() {
           </ProductCard>
         ))}
       </ProductsSection>
+      <ArrowsSection>
+        <PageNavIcon>
+        <Arrow arrowColor="var(--dimGray)" />
+        </PageNavIcon>
+        <PageNavIcon forward>
+        <Arrow arrowColor="var(--dimGray)" />
+        </PageNavIcon>
+      </ArrowsSection>
     </Container>
   );
 }
