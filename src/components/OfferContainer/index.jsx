@@ -40,7 +40,7 @@ const Offers = () => {
             <OfferContainerTitle>Ofertas terminando em breve</OfferContainerTitle>
             <OfferContainer>
                 <OfferItem />
-                <OfferItem />
+
             </OfferContainer>
         </OfferSection>
     )
