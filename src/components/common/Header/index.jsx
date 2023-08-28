@@ -1,5 +1,4 @@
 import styled from "styled-components";
-
 import cartIcon from "../../../assets/icons/cart-header-icon.svg";
 import profileIcon from "../../../../src/assets/icons/user-profile.png";
 import searchIcon from "../../../../src/assets/icons/search-icon.png";
@@ -27,8 +26,8 @@ const CartIconContainer = styled.div`
     background-size: contain;
     fill: gray;
     width: 20.367px;
-height: 20.167px;
-flex-shrink: 0;
+    height: 20.167px;
+    flex-shrink: 0;
    }
 `;
 
@@ -54,7 +53,7 @@ const HeaderContainer = styled.header`
   padding: 32px 200px;
   gap: 40px;
   height: 109px;
-  width: 100%;
+  width: 1600px;
 `;
 
 const CartButton = styled.button`
@@ -71,31 +70,31 @@ const CartButton = styled.button`
 `;
 
 const CartItemCounter = styled.div`
-background-color: var(--folly);
-border: 1px solid var(--white);
-border-radius: 30px;
-bottom: 16px;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-height: 18px;
-left: 14px;
-position: absolute;
-text-decoration: none;
-width: 18px;
-
-p {
-  color: var(--white);
-  flex-shrink: 0;
-  font-family: Roboto Flex;
-font-size: 10px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
+  background-color: var(--folly);
+  border: 1px solid var(--white);
+  border-radius: 30px;
+  bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 18px;
+  left: 14px;
+  position: absolute;
   text-decoration: none;
-}
-`
+  width: 18px;
+
+  p {
+    color: var(--white);
+    flex-shrink: 0;
+    font-family: Roboto Flex;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration: none;
+  }
+`;
 
 const WelcomeContainer = styled.div`
   display: flex;
@@ -118,7 +117,7 @@ const WelcomeText = styled.div`
   }
   h1 {
     margin: 0;
-    color: var(--mikadoYellow);
+    color: var(--jet);
     font-size: 16px;
     font-weight: 400;
   }
@@ -129,11 +128,10 @@ const SearchContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  border: 1px solid #eee;
+  border: 1px solid var(--antiFlashWhite);
   border-radius: 4px;
   padding: 14px 16px;
   width: 833px;
-
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 `;
 
@@ -164,8 +162,10 @@ const Header = () => {
         <Link to="/cart">
           <CartIconContainer>
             <img src={cartIcon}></img>
-            <CartItemCounter><p>{calculateTotalQuantity()}</p></CartItemCounter>
-            </CartIconContainer>
+            <CartItemCounter>
+              <p>{calculateTotalQuantity()}</p>
+            </CartItemCounter>
+          </CartIconContainer>
         </Link>
       </CartButton>
 

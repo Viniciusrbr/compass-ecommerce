@@ -23,14 +23,18 @@ const ItemContainer = styled.div`
     background-image: url(${deleteIcon});
     background-repeat: no-repeat;
     background-position: center;
-    background-color: transparent;
+    background-color: var(--seaSalt);
     border: none;
   }
 `;
 
-const IconContainer = styled.div`
-  background: (var--seaSalt);
+const IconContainer = styled.button`
+  background-color: var(--seaSalt);
+  background-image: url(${deleteIcon});
+  background-repeat: no-repeat;
+  background-position: center;
   border-radius: 50px;
+  cursor: pointer;
   display: flex;
   padding: var(--spacing-lg, 8px);
   align-items: center;
@@ -120,8 +124,7 @@ const CartItem = ({ item }) => {
 
   return (
     <ItemContainer>
-      <button onClick={handleRemoveItem} className="deleteButton"></button>
-      
+      <IconContainer onClick={handleRemoveItem} className="deleteButton"></IconContainer>
       <ItemTotalPrice>
         R$ {(item.price * item.quantity).toFixed(2)}
       </ItemTotalPrice>

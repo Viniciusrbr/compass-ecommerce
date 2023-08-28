@@ -1,13 +1,5 @@
 import styled from "styled-components";
 
-const colors = {
-  aqua: "#62D0B6",
-  lightGray: "#EEEEEE",
-  mediumGray: "#A5A5A5",
-  darkGray: "#333333",
-  white: "#FFFFFF",
-};
-
 const CouponContainer = styled.div`
   align-items: flex-end;
   align-self: stretch;
@@ -23,7 +15,7 @@ const CouponContainer = styled.div`
 
 const CouponLabel = styled.p`
   align-self: stretch;
-  color: ${colors.darkGray};
+  color: var(--jet);
   text-align: right;
   font-family: Roboto Flex;
   font-size: 14px;
@@ -39,8 +31,8 @@ const CouponInput = styled.div`
   align-items: center;
   align-self: stretch;
   border-radius: 4px;
-  border: 1px solid ${colors.lightGray};
-  background: #fff;
+  border: 1px solid var(--antiFlashWhite);
+  background: var(--white);
   display: flex;
   gap: 10px;
   height: 37px;
@@ -48,7 +40,7 @@ const CouponInput = styled.div`
   width: 100%;
 
   input.couponinput {
-    color: ${colors.mediumGray};
+    color: var(--silver);
     flex: 1 0 0;
     font-family: Roboto Flex;
     font-size: 14px;
@@ -66,11 +58,11 @@ const CouponInput = styled.div`
 `;
 
 const CouponButton = styled.button`
-  background-color: ${colors.white};
+  background-color: var(--white);
   border-radius: var(--radius-sm, 4px) 4px var(--radius-sm, 4px)
     var(--radius-sm, 4px);
-  border: 1px solid ${colors.aqua};
-  color: ${colors.mediumGray};
+  border: 1px solid var(--turquoise);
+  color: var(--silver);
   text-align: right;
   font-family: Roboto Flex;
   font-size: 14px;

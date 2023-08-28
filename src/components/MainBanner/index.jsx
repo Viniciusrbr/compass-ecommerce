@@ -3,11 +3,6 @@ import Banner from "../../assets/images/Banner.png";
 import LArrowIcon from "../../assets/icons/arrow-left.png";
 import RArrowIcon from "../../assets/icons/arrow-right.png";
 
-const colors = {
-  white: "#ffffff",
-  lightGray: "#eeeeee",
-};
-
 const fonts = {
   robotoMono: "Roboto Mono",
 };
@@ -33,7 +28,7 @@ const ContainerTexts = styled.div`
   margin-top: 0px;
 
   h1 {
-    color: ${colors.white};
+    color: var(--white);
     font-family: ${fonts.robotoMono};
     font-size: 48px;
     font-weight: 400;
@@ -59,20 +54,17 @@ const ContainerTexts = styled.div`
 
 const IconCircle = styled.div`
   border-radius: 50%;
-  border: 1px solid var(--footer-background);
-  color: var(--footer-background);
+  border: 1px solid var(--antiFlashWhite);
+  color: var(--antiFlashWhite);
   padding: 4px;
-
   width: 60px;
   height: 60px;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   position: absolute;
   ${(props) => (props.left ? "left: 200px;" : "right: 200px;")}
-  top: 50%;
+  top: 321px;
 `;
 
 const Button = styled.button`

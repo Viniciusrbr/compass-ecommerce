@@ -2,13 +2,14 @@ import styled from "styled-components";
 import OfferItem from "./OfferItem/index";
 
 const OfferSection = styled.section`
+box-sizing: border-box;
     display: flex;
     padding: var(--spacing-6-xl, 56px) 200px;
     flex-direction: column;
     align-items: flex-end;
     gap: var(--spacing-3-xl, 32px);
-    height: 338px;
-    width: 1200px;
+    height: 450px;
+    width: 1600px;
 `
 
 const OfferContainerTitle = styled.p`
