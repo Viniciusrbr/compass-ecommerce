@@ -9,7 +9,7 @@ box-sizing: border-box;
     align-items: flex-end;
     gap: var(--spacing-3-xl, 32px);
     height: 450px;
-    width: 1600px;
+    //width: 1600px;
 `
 
 const OfferContainerTitle = styled.p`
@@ -22,7 +22,7 @@ const OfferContainerTitle = styled.p`
     line-height: 35px;
     margin: 0;
     text-align: right;
-    width: 1200px;
+    //width: 1200px;
 `;
 
 const OfferContainer = styled.section`

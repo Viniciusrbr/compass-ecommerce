@@ -20,7 +20,7 @@ const BannerContainer = styled.section`
   background-size: cover;
   box-sizing: border-box;
   display: flex;
-  width: 1600px;
+  //width: 1600px;
   padding: 90px 200px;
   align-items: center;
   gap: var(--spacing-5-xl, 48px);

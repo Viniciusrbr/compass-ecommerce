@@ -350,6 +350,7 @@ const OfferItem = ({ myColor }) => {
           >
             <HeartIcon myColor="var(--silver)"></HeartIcon>
           </ButtonFavorite>
+          
           <ButtonAddToCart>
             <p>Carrinho</p>
             <div></div>
