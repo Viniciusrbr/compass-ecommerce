@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import api from "../../../services/api";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import TagDiscount from "../../TagDiscount/index";
 import Countdown from "../../Countdown/index";
@@ -65,6 +66,7 @@ const OfferItemImage = styled.section`
   background-repeat: no-repeat;
   background-size: contain;
   border-radius: 0 4px 0 0;
+  box-sizing: border-box;
   height: 271px;
   margin: auto;
   padding: 16px;
@@ -356,9 +358,11 @@ const OfferItem = () => {
           </ButtonAddToCart>
         </ButtonContainer>
       </OfferItemDetails>
+      <Link to={`/productDetails/${product?.id}`}>
       <OfferItemImage image={product?.image}>
         <TagDiscount discount={product?.id} />
       </OfferItemImage>
+      </Link>
     </OfferItemContainer>
   );
 };
