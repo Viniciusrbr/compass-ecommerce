@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;500;600;700&family=Roboto+Flex:wght@400;500&display=swap');
+
+:root {
+    --white: #FFFFFF;
+    --seaSalt: #F8F8F8;
+    --antiFlashWhite: #EEEEEE;
+    --timberwolf: #D6D6D6;
+    --silver: #A5A5A5;
+    --dimGray: #666666;
+    --onyx: #444444;
+    --jet: #333333;
+    --eerieBlack: #1D1F1F;
+    --mintGreen: #D0F1E9;
+    --tiffanyBlue: #81D9C5;
+    --turquoise: #62D0B6;
+    --mikadoYellow: #FFC62A;
+    --folly: #F55157;
+
+    font-family: 'Roboto Flex', sans-serif;
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+

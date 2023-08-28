@@ -1,10 +1,12 @@
-import React from 'react'
-
+import React from "react";
+import Checkout from "../../components/Checkout/index";
 
 function CartPage() {
   return (
-    <div>CartPage</div>
-  )
+    <>
+      <Checkout />
+    </>
+  );
 }
 
-export default CartPage
+export default CartPage;
