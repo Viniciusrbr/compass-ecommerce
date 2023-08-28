@@ -453,7 +453,7 @@ function ProductsContainer() {
                   </p>
                   <p className="discountedPrice">
                     por{" "}
-                    {product.price.toLocaleString("pt-BR", {
+                    {((product?.price * (100-product?.id))/100).toLocaleString("pt-BR", {
                       style: "currency",
                       currency: "BRL",
                       minimumFractionDigits: 2,

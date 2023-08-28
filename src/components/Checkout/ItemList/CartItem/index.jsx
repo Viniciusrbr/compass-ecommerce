@@ -125,13 +125,13 @@ const CartItem = ({ item }) => {
     <ItemContainer>
       <IconContainer onClick={handleRemoveItem} className="deleteButton"></IconContainer>
       <ItemTotalPrice>
-        R$ {(item.price * item.quantity).toFixed(2)}
+        R$ {(item.price * item.quantity).toLocaleString("pt-BR", {style:"currency", currency:"BRL", minimumFractionDigits: 2})}
       </ItemTotalPrice>
       <Counter item={item} />
       <ItemDetails>
         <ItemText>
           <ItemTitle>{item.title}</ItemTitle>
-          <ItemPrice>R$ {item.price.toFixed(2)}</ItemPrice>
+          <ItemPrice>{item?.price.toLocaleString("pt-BR", {style:"currency", currency:"BRL", minimumFractionDigits: 2})}</ItemPrice>
         </ItemText>
         <ItemImage src={item.image} />
       </ItemDetails>
