@@ -325,7 +325,7 @@ function ProductDetailsPage() {
               <StarIcon myFill="var(--mikadoYellow)"></StarIcon>
               <StarIcon myFill="var(--mikadoYellow)"></StarIcon>
               <StarIcon myFill="var(--mikadoYellow)"></StarIcon>
-              <StarIcon myFill="var(--mikadoYellow)A"></StarIcon>
+              <StarIcon myFill="var(--mikadoYellow)"></StarIcon>
               <StarIcon myFill="var(--mikadoYellow)"></StarIcon>
             </OfferItemRatingStars>
           </RatingsContainer>
