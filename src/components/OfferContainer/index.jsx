@@ -20,7 +20,6 @@ const OfferContainerTitle = styled.p`
     height: 35px;
     line-height: 35px;
     margin: 0;
-    padding-top: 56px;
     text-align: right;
     width: 1200px;
 `;
@@ -28,7 +27,6 @@ const OfferContainerTitle = styled.p`
 const OfferContainer = styled.section`
     align-items: flex-start;
     align-self: stretch;
-    background: #F8F8F8;
     display: flex;
     height: 271px;
     gap: var(--spacing-2-x1, 24px);

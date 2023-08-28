@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import cartIcon from "../../../../src/assets/icons/cart-icon.png";
+import cartIcon from "../../../assets/icons/cart-header-icon.svg";
 import profileIcon from "../../../../src/assets/icons/user-profile.png";
 import searchIcon from "../../../../src/assets/icons/search-icon.png";
 import siteLogo from "../../../../src/assets/icons/cart-logo-icon.png";
@@ -8,10 +8,34 @@ import siteLogo from "../../../../src/assets/icons/cart-logo-icon.png";
 import { Link } from "react-router-dom";
 import { useCart } from "../../../store/CartContext";
 
+const CartIconContainer = styled.div`
+  align-self: stretch;
+  color: var(--dimGray)
+  display: flex;
+  width: 24px;
+  height: 24px;
+  padding: 1.833px 1.843px 2px 1.789px;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+
+   img {
+    background-image: ${cartIcon};
+    background-origin: content-box;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    fill: gray;
+    width: 20.367px;
+height: 20.167px;
+flex-shrink: 0;
+   }
+`;
+
 const RoundedIcon = styled.img`
   border-radius: 50px;
   padding: 8px;
-  background: #f8f8f8;
+  background: var(--seaSalt);
 
   width: 24px;
   height: 24px;
@@ -29,24 +53,49 @@ const HeaderContainer = styled.header`
   justify-content: space-between;
   padding: 32px 200px;
   gap: 40px;
-  width: 1600px;
+  height: 109px;
+  width: 100%;
 `;
 
 const CartButton = styled.button`
   border-radius: 50px;
   border: none;
-  background: #f8f8f8;
-
-  span{
-    position: absolute;
-
-    background-color: #F55157;
-    border-radius: 50%;
-    padding: 8px;
-    color: #fff;
-    text-decoration: none;
-  }
+  background: var(--seaSalt);
+  display: flex;
+  padding: var(--spacing-lg, 8px);
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  height: 40px;
+  width: 40px;
 `;
+
+const CartItemCounter = styled.div`
+background-color: var(--folly);
+border: 1px solid var(--white);
+border-radius: 30px;
+bottom: 16px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+height: 18px;
+left: 14px;
+position: absolute;
+text-decoration: none;
+width: 18px;
+
+p {
+  color: var(--white);
+  flex-shrink: 0;
+  font-family: Roboto Flex;
+font-size: 10px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+  text-decoration: none;
+}
+`
 
 const WelcomeContainer = styled.div`
   display: flex;
@@ -63,7 +112,7 @@ const WelcomeText = styled.div`
 
   p {
     margin: 0;
-    color: #a5a5a5;
+    color: var(--silver);
     font-size: 14px;
     font-weight: 400;
   }
@@ -113,8 +162,10 @@ const Header = () => {
     <HeaderContainer>
       <CartButton>
         <Link to="/cart">
-          <RoundedIcon src={cartIcon} alt="Cart" />
-          <span>{calculateTotalQuantity()}</span>
+          <CartIconContainer>
+            <img src={cartIcon}></img>
+            <CartItemCounter><p>{calculateTotalQuantity()}</p></CartItemCounter>
+            </CartIconContainer>
         </Link>
       </CartButton>
 

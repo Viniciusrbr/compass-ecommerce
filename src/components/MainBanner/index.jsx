@@ -17,13 +17,12 @@ const BannerContainer = styled.section`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-
   height: 496px;
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%;
 `;
 
 const ContainerTexts = styled.div`
@@ -46,7 +45,7 @@ const ContainerTexts = styled.div`
     width: 888px;
   }
   p {
-    color: var(--footer-background);
+    color: var(--seaSalt);
     font-family: ${fonts.robotoMono};
     font-size: 16px;
     font-weight: 400;
@@ -81,10 +80,10 @@ const Button = styled.button`
   align-items: center;
   justify-content: center;
 
-  background: var(--primary-color);
+  background: var(--turquoise);
   border-radius: 4px;
-  border: 1px solid var(--primary-color);
-  color: ${colors.white};
+  border: 1px solid var(--turquoise);
+  color: var(--white);
 
   font-size: 16px;
   font-style: normal;
