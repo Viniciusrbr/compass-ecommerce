@@ -338,8 +338,8 @@ const OfferItem = () => {
             </OfferItemRatingStars>
           </OfferItemRating>
           <OfferItemPrices>
-            <OfferItemFullPrice>de R$ </OfferItemFullPrice>
-            <OfferItemDiscountedPrice>por R$ </OfferItemDiscountedPrice>
+            <OfferItemFullPrice>de R$ {product?.price}</OfferItemFullPrice>
+            <OfferItemDiscountedPrice>por R$ {product?.price}</OfferItemDiscountedPrice>
           </OfferItemPrices>
         </OfferItemTextInfo>
         <Countdown />
