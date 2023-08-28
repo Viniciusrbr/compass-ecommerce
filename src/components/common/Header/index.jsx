@@ -7,8 +7,17 @@ import siteLogo from "../../../../src/assets/icons/cart-logo-icon.png";
 import { Link } from "react-router-dom";
 import { useCart } from "../../../store/CartContext";
 
+const CartProfileContainer = styled.div`
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-3-xl, 32px);
+  height: auto;
+  width: auto;
+`;
+
 const CartIconContainer = styled.div`
   align-self: stretch;
+  box-sizing: border-box;
   color: var(--dimGray)
   display: flex;
   width: 24px;
@@ -65,8 +74,8 @@ const CartButton = styled.button`
   justify-content: center;
   align-items: center;
   gap: 10px;
-  height: 40px;
-  width: 40px;
+  height: auto;
+  width: auto;
 `;
 
 const CartItemCounter = styled.div`
@@ -100,38 +109,48 @@ const WelcomeContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
+  height: auto;
+  width: auto;
 `;
 
 const WelcomeText = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  height: 41px;
+  height: auto;
   width: 75px;
 
   p {
     margin: 0;
     color: var(--silver);
     font-size: 14px;
+    font-style: normal;
     font-weight: 400;
+    line-height: normal;
+    text-align: right;
   }
   h1 {
     margin: 0;
     color: var(--jet);
     font-size: 16px;
     font-weight: 400;
+    height: auto;
+    line-height: 25px;
+    width: auto;
   }
 `;
 
 const SearchContainer = styled.div`
+align-self: stretch;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 10px;
   border: 1px solid var(--antiFlashWhite);
   border-radius: 4px;
-  padding: 14px 16px;
-  width: 833px;
+  height: auto;
+  padding: 14px var(--spacing-xl, 16px) 15px var(--spacing-xl, 16px);
+  width: 100%;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 `;
 
@@ -142,9 +161,15 @@ const SearchIconImage = styled.img`
 
 const SearchInput = styled.input`
   border: none;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  height: auto;
+  line-height: normal;
   outline: none;
-  width: 100%;
+  padding: 0;
   text-align: right;
+  width: 100%;
 `;
 
 const Header = () => {
@@ -158,24 +183,26 @@ const Header = () => {
 
   return (
     <HeaderContainer>
-      <CartButton>
-        <Link to="/cart">
-          <CartIconContainer>
-            <img src={cartIcon}></img>
-            <CartItemCounter>
-              <p>{calculateTotalQuantity()}</p>
-            </CartItemCounter>
-          </CartIconContainer>
-        </Link>
-      </CartButton>
+      <CartProfileContainer>
+        <CartButton>
+          <Link to="/cart">
+            <CartIconContainer>
+              <img src={cartIcon}></img>
+              <CartItemCounter>
+                <p>{calculateTotalQuantity()}</p>
+              </CartItemCounter>
+            </CartIconContainer>
+          </Link>
+        </CartButton>
 
-      <WelcomeContainer>
-        <WelcomeText>
-          <p>Bem-vindo</p>
-          <h1>Welliton</h1>
-        </WelcomeText>
-        <RoundedIcon src={profileIcon} alt="Profile" />
-      </WelcomeContainer>
+        <WelcomeContainer>
+          <WelcomeText>
+            <p>Bem-vindo</p>
+            <h1>Welliton</h1>
+          </WelcomeText>
+          <RoundedIcon src={profileIcon} alt="Profile" />
+        </WelcomeContainer>
+      </CartProfileContainer>
 
       <SearchContainer>
         <SearchIconImage src={searchIcon} alt="Search" />

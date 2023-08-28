@@ -328,13 +328,13 @@ const OfferItem = () => {
             {product?.description}
           </OfferItemDescription>
           <OfferItemRating>
-            <OfferItemRatingText>(5.0)</OfferItemRatingText>
+            <OfferItemRatingText>({product?.rating.rate})</OfferItemRatingText>
             <OfferItemRatingStars>
               <StarIcon myFill="#FFC62A"></StarIcon>
               <StarIcon myFill="#FFC62A"></StarIcon>
               <StarIcon myFill="#FFC62A"></StarIcon>
-              <StarIcon myFill="#FFC62A"></StarIcon>
-              <StarIcon myFill="#FFC62A"></StarIcon>
+              <StarIcon myFill="var(--timberwolf)"></StarIcon>
+              <StarIcon myFill="var(--timberwolf)"></StarIcon>
             </OfferItemRatingStars>
           </OfferItemRating>
           <OfferItemPrices>

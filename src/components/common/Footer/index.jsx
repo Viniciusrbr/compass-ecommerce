@@ -16,7 +16,7 @@ const FooterBlack = styled.div`
   align-items: center;
   gap: var(--spacing-2-xl, 24px);
   flex-shrink: 0;
-  width: 100%;
+  width: 1600px;
 `;
 
 const Payment = styled.div`
@@ -65,7 +65,7 @@ const FooterWhite = styled.div`
   gap: var(--spacing-2-xl, 24px);
   flex-shrink: 0;
   height: 133px;
-  width: 100%;
+  width: 1600px;
 `;
 
 const DownloadApp = styled.div`
@@ -227,14 +227,22 @@ const Earn = styled.p`
 
 const NewsletterIconContainer = styled.div`
   border-radius: 50px;
+  box-sizing: border-box;
   background: var(--mintGreen);
   display: flex;
   padding: var(--spacing-xl, 16px);
   justify-content: center;
   align-items: center;
-  gap: 10px;
-  height: auto;
-  width: auto;
+  height: 64px;
+  width: 64px;
+
+  img {
+    background-image: url(${EmailIcon});
+    background-origin: content-box;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
 `;
 
 const EmailIconContainer = styled.div`
@@ -287,7 +295,9 @@ function Footer() {
                 Cadastre-se agora e ganhe 10% de desconto na sua próxima compra!
               </Earn>
             </NewsletterText>
-            <NewsletterIconContainer />
+            <NewsletterIconContainer>
+              <img src={EmailIcon} />
+            </NewsletterIconContainer>
           </Newsletter>
         </SubscribeDetails>
       </FooterWhite>
