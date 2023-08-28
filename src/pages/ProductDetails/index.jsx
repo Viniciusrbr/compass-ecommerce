@@ -26,10 +26,6 @@ function ProductDetailsPage() {
     dispatch({ type: "ADD_TO_CART", payload: product }); // Add o produto ao carrinho
   };
 
-  const handleRemoveItem = () => {
-    dispatch({ type: "REMOVE_FROM_CART", payload: product.id });
-  };
-
   if (!product) {
     return <p>Carregando...</p>;
   }
@@ -155,18 +151,6 @@ function ProductDetailsPage() {
     }
   `;
 
-  const colors = {
-    aqua: "#62D0B6",
-    aquaHover: "#81D9C5",
-    coral: "#F55157",
-    buttonGray: "#EEEEEE",
-    lightGray: "#F8F8F8",
-    mediumGray: "#A5A5A5",
-    mediumDarkGray: "#666666",
-    darkGray: "#333333",
-    white: "#FFFFFF",
-  };
-
   const StarIcon = ({ myFill }) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -195,8 +179,8 @@ function ProductDetailsPage() {
     button {
       height: 100%;
       width: 50px;
-      background: ${colors.white};
-      border: 1px solid #eeeeee;
+      background: var(--white);
+      border: 1px solid var(--antiFlashWhite);
     }
   `;
 
@@ -316,7 +300,7 @@ function ProductDetailsPage() {
     height: 100%;
     width: 50px;
     text-align: center;
-    border: 1px solid #eee;
+    border: 1px solid var(--antiFlashWhite);
     padding: 0px;
     box-sizing: border-box;
   `;
@@ -338,11 +322,11 @@ function ProductDetailsPage() {
             <p>({product.rating.count}) Avaliações</p>
 
             <OfferItemRatingStars>
-              <StarIcon myFill="#FFC62A"></StarIcon>
-              <StarIcon myFill="#FFC62A"></StarIcon>
-              <StarIcon myFill="#FFC62A"></StarIcon>
-              <StarIcon myFill="#FFC62A"></StarIcon>
-              <StarIcon myFill="#FFC62A"></StarIcon>
+              <StarIcon myFill="var(--mikadoYellow)"></StarIcon>
+              <StarIcon myFill="var(--mikadoYellow)"></StarIcon>
+              <StarIcon myFill="var(--mikadoYellow)"></StarIcon>
+              <StarIcon myFill="var(--mikadoYellow)A"></StarIcon>
+              <StarIcon myFill="var(--mikadoYellow)"></StarIcon>
             </OfferItemRatingStars>
           </RatingsContainer>
 
@@ -352,12 +336,7 @@ function ProductDetailsPage() {
         <ButtonsContainer>
           <PriceAmount>
             <p>R$ {product.price.toFixed(2)}</p>
-
-            <SectionCounter>
-              <button>-</button>
-              <Input type="text" placeholder="1"></Input>
-              <button>+</button>
-            </SectionCounter>
+            <Counter item={product} quantity={product.quantity}/>
           </PriceAmount>
           <ButtonOptions>
             <ButtonAddToCart onClick={() => addToCart(product)}>

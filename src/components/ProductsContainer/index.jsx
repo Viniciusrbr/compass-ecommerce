@@ -400,7 +400,7 @@ function ProductsContainer() {
     setFavorited(!isFavorited);
   };
   if (isFavorited) {
-    HeartIcon.myColor = "#9af785";
+    HeartIcon.myColor = "var(--white)";
   }
 
   return (
@@ -452,14 +452,14 @@ function ProductsContainer() {
               <CardButtons>
                 <ButtonFavorite
                   onClick={handleFavorite}
-                  style={{ background: isFavorited ? "#62D0B6" : "#FFFFFF" }}
+                  style={{ background: isFavorited ? "var(--turquoise)" : "var(--white)" }}
                 >
-                  <HeartIcon myColor="#A5A5A5"></HeartIcon>
+                  <HeartIcon myColor="var(--silver)"></HeartIcon>
                 </ButtonFavorite>
                 <ButtonAddToCart onClick={() => addToCart(product)}>
                   <p>Carrinho</p>
                   <div>
-                    <CartIcon cartColor="#333333" />
+                    <CartIcon cartColor="var(--jet)" />
                   </div>
                 </ButtonAddToCart>
               </CardButtons>

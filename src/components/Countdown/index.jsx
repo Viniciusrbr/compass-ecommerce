@@ -23,7 +23,7 @@ const CountdownContainer = styled.div`
 `
 
 const CountdownItem = styled.div`
-    background: ${colors.lightGray};
+    background: var(--seaSalt);
     border-radius: 4px;
     display: flex;
     padding: var(--spacing-md, 4px) var(--spacing-xl, 16px) var(--spacing-lg, 8px) var(--spacing-xl, 16px);
@@ -36,7 +36,7 @@ const CountdownItem = styled.div`
     width: 52px;
 
     p.num {
-        color: ${colors.darkGray};
+        color: var(--jet);
         text-align: right;
         font-family: Roboto Flex;
         font-size: 18px;
@@ -47,7 +47,7 @@ const CountdownItem = styled.div`
     }
 
     p.label {
-        color: ${colors.mediumGray};
+        color: var(--silver);
         text-align: right;
         font-family: Roboto Flex;
         font-size: 14px;

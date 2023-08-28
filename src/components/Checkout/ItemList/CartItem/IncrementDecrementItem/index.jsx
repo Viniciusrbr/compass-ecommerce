@@ -4,17 +4,11 @@ import PlusIcon from "../../../../../assets/icons/plus.svg";
 import { useState } from "react";
 import { useCart } from "../../../../../store/CartContext";
 
-const colors = {
-  lightGray: "#EEEEEE",
-  lightMediumGray: "#666666",
-  white: "#FFFFFF",
-};
-
 const Counter = styled.div`
   align-items: center;
   border-radius: 4px;
-  border: 1px solid ${colors.lightGray};
-  background: ${colors.white};
+  border: 1px solid var(--antiFlashWhite);
+  background: var(--white);
   display: flex;
   height: 50px;
   height: 50px;
@@ -22,7 +16,7 @@ const Counter = styled.div`
 `;
 
 const DecreaseButton = styled.button`
-  background-color: ${colors.white};
+  background-color: var(--white);
   background-image: url(${MinusIcon});
   background-origin: content-box;
   background-position: center center;
@@ -46,10 +40,10 @@ const ItemQuantity = styled.div`
   width: 78px;
 
   p {
-    border: 1px solid ${colors.lightGray};
+    border: 1px solid var(--antiFlashWhite);
     border-top: 0;
     border-bottom: 0;
-    color: ${colors.lightMediumGray};
+    color: var(--dimGray);
     font-family: Roboto Flex;
     font-size: 16px;
     font-style: normal;
@@ -63,7 +57,7 @@ const ItemQuantity = styled.div`
 `;
 
 const IncreaseButton = styled.button`
-  background-color: ${colors.white};
+  background-color: var(--white);
   background-image: url(${PlusIcon});
   background-origin: content-box;
   background-position: center center;

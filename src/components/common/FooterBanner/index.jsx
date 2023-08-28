@@ -3,11 +3,6 @@ import BannerFooter from "../../../assets/icons/bannerContainer.png";
 import Lap from "../../../assets/icons/lap 1.png";
 import myArrow from "../../../assets/icons/go-back-icon.svg";
 
-const colors = {
-  white: "#ffffff",
-  lightGray: "#eeeeee",
-};
-
 const fonts = {
   robotoMono: "Roboto Mono",
 };
