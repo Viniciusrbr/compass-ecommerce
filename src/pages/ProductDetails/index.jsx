@@ -4,6 +4,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useCart } from "../../store/CartContext";
 import Counter from "../../components/Checkout/ItemList/CartItem/IncrementDecrementItem/index";
+import ItemCounter from "../../components/ItemDetailCounter/index";
 
 function ProductDetailsPage() {
   const { productId } = useParams();
@@ -336,9 +337,9 @@ function ProductDetailsPage() {
         <ButtonsContainer>
           <PriceAmount>
             <p>{product.price.toLocaleString("pt-BR", {style:"currency", currency:"BRL", minimumFractionDigits: 2})}</p>
-            <Counter item={product} quantity={product.quantity}>
-              {product.quantity}
-              </Counter>
+            <ItemCounter item={product}>
+              <p></p>
+              </ItemCounter>
           </PriceAmount>
           <ButtonOptions>
             <ButtonAddToCart onClick={() => addToCart(product)}>
