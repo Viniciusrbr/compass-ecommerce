@@ -441,10 +441,10 @@ function ProductsContainer() {
 
                 <ProductPrices>
                   <p className="fullPrice">
-                    de R$ {product.price.toLocaleString("pt-BR")}
+                    de {product.price.toLocaleString("pt-BR", {style:"currency", currency:"BRL", minimumFractionDigits: 2})}
                   </p>
                   <p className="discountedPrice">
-                    por R$ {product.price.toLocaleString("pt-BR")}
+                    por {product.price.toLocaleString("pt-BR", {style:"currency", currency:"BRL", minimumFractionDigits: 2})}
                   </p>
                 </ProductPrices>
               </ProductInformation>

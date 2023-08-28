@@ -94,7 +94,7 @@ const ItemCounter = ({ item }) => {
   };
 
   return (
-    <Counter>
+    <Counter quantity={item.quantity}>
       <DecreaseButton onClick={handleDecrease}></DecreaseButton>
       <ItemQuantity>
         <p>{item.quantity}</p>

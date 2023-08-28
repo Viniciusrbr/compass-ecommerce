@@ -299,12 +299,6 @@ const OfferItem = () => {
       .catch((error) => console.log(error));
   });
 
-  let localizedPrice = new Intl.NumberFormat("pt-BR", {
-    style: "currency",
-    currency: "BRL",
-    minimumFractionDigits: 2,
-  });
-
   const [discount, setDiscount] = useState();
 
   function getRandomDiscount(min, max) {
@@ -334,8 +328,8 @@ const OfferItem = () => {
             </OfferItemRatingStars>
           </OfferItemRating>
           <OfferItemPrices>
-            <OfferItemFullPrice>de R$ {product?.price}</OfferItemFullPrice>
-            <OfferItemDiscountedPrice>por R$ {product?.price}</OfferItemDiscountedPrice>
+            <OfferItemFullPrice>de {product.price.toLocaleString("pt-BR", {style:"currency", currency:"BRL", minimumFractionDigits: 2})}</OfferItemFullPrice>
+            <OfferItemDiscountedPrice>por {product.price.toLocaleString("pt-BR", {style:"currency", currency:"BRL", minimumFractionDigits: 2})}</OfferItemDiscountedPrice>
           </OfferItemPrices>
         </OfferItemTextInfo>
         <Countdown />

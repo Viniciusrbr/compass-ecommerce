@@ -336,7 +336,9 @@ function ProductDetailsPage() {
         <ButtonsContainer>
           <PriceAmount>
             <p>R$ {product.price.toFixed(2)}</p>
-            <Counter item={product} quantity={product.quantity}/>
+            <Counter item={product} quantity={product.quantity}>
+              <p>{product.quantity}</p>
+              </Counter>
           </PriceAmount>
           <ButtonOptions>
             <ButtonAddToCart onClick={() => addToCart(product)}>
