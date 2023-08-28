@@ -5,6 +5,7 @@ import styled from "styled-components";
 import TagDiscount from "../../TagDiscount/index";
 import Countdown from "../../Countdown/index";
 import CartIcon from "../../../assets/icons/cart.svg";
+import { useCart } from "../../../store/CartContext";
 
 const HeartIcon = ({ myColor }) => (
   <svg
@@ -236,6 +237,10 @@ export const ButtonFavorite = styled.button`
   align-self: stretch;
   height: 56px;
   width: 50px;
+
+  :active {
+    color: red;
+  }
 `;
 
 const ButtonAddToCart = styled.button`
@@ -282,22 +287,32 @@ const ButtonAddToCart = styled.button`
   }
 `;
 
-const OfferItem = () => {
+const OfferItem = ({ myColor }) => {
   const [isFavorited, setFavorited] = useState(false);
   const handleFavorite = () => {
     setFavorited(!isFavorited);
   };
   if (isFavorited) {
-    HeartIcon.myColor = "#42f785";
+    myColor = "#42f785";
   }
 
-  const [product, setProduct] = useState();
+  const { dispatch } = useCart(); 
+  const [products, setProducts] = useState();
+  const [product, setProduct] = useState(null); 
   useEffect(() => {
     api
-      .get("/products/9")
-      .then((response) => setProduct(response.data))
-      .catch((error) => console.log(error));
-  });
+      .get("/products")
+      .then((response) => {
+        setProducts(response.data.slice(8, 10))
+      })
+      .catch((error) => {
+        console.error("Error fetching products", error);
+      });
+    }, []);
+
+    const addToCart = (product) => {
+      dispatch({ type: "ADD_TO_CART", payload: product });
+    };
 
   const [discount, setDiscount] = useState();
 
@@ -308,6 +323,8 @@ const OfferItem = () => {
   };
 
   return (
+    <>
+    {products?.map((product) => (
     <OfferItemContainer>
       <OfferItemDetails>
         <OfferItemTextInfo>
@@ -336,12 +353,12 @@ const OfferItem = () => {
         <ButtonContainer>
           <ButtonFavorite
             onClick={handleFavorite}
-            style={{ background: isFavorited ? "var(--turquoise)" : "var(--white)" }}
+            style={ isFavorited ? { background: "var(--turquoise)" } : { background: "var(--white)" }}
           >
             <HeartIcon myColor="var(--silver)"></HeartIcon>
           </ButtonFavorite>
           
-          <ButtonAddToCart>
+          <ButtonAddToCart onClick={() => addToCart(product)}>
             <p>Carrinho</p>
             <div></div>
           </ButtonAddToCart>
@@ -353,7 +370,9 @@ const OfferItem = () => {
       </OfferItemImage>
       </Link>
     </OfferItemContainer>
+    ))}
+    </>
   );
-};
+  };
 
 export default OfferItem;

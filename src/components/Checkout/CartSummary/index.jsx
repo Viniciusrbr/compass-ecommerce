@@ -82,7 +82,7 @@ const CartSummary = () => {
     <CartSummaryContainer>
       <h1>Resumo do pedido</h1>
       <SummaryPrice>
-        <p className="pricetotal">R$ {totalPrice().toFixed(2)}</p>
+        <p className="pricetotal">{totalPrice().toLocaleString("pt-BR", {style:"currency", currency:"BRL", minimumFractionDigits: 2})}</p>
 
         <p className="summarylabel">Total</p>
       </SummaryPrice>

@@ -131,7 +131,7 @@ const CartItem = ({ item }) => {
       <ItemDetails>
         <ItemText>
           <ItemTitle>{item.title}</ItemTitle>
-          <ItemPrice>R$ {item.price.toFixed(2)}</ItemPrice>
+          <ItemPrice>{item?.price.toLocaleString("pt-BR", {style:"currency", currency:"BRL", minimumFractionDigits: 2})}</ItemPrice>
         </ItemText>
         <ItemImage src={item.image} />
       </ItemDetails>
