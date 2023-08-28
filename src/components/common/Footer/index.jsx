@@ -16,7 +16,7 @@ const FooterBlack = styled.div`
   align-items: center;
   gap: var(--spacing-2-xl, 24px);
   flex-shrink: 0;
-  width: 1600px;
+  //width: 1600px;
 `;
 
 const Payment = styled.div`
@@ -65,7 +65,7 @@ const FooterWhite = styled.div`
   gap: var(--spacing-2-xl, 24px);
   flex-shrink: 0;
   height: 133px;
-  width: 1600px;
+  //width: 1600px;
 `;
 
 const DownloadApp = styled.div`

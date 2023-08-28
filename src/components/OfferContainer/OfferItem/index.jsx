@@ -328,8 +328,8 @@ const OfferItem = () => {
             </OfferItemRatingStars>
           </OfferItemRating>
           <OfferItemPrices>
-            <OfferItemFullPrice>de {product.price.toLocaleString("pt-BR", {style:"currency", currency:"BRL", minimumFractionDigits: 2})}</OfferItemFullPrice>
-            <OfferItemDiscountedPrice>por {product.price.toLocaleString("pt-BR", {style:"currency", currency:"BRL", minimumFractionDigits: 2})}</OfferItemDiscountedPrice>
+            <OfferItemFullPrice>de {product?.price.toLocaleString("pt-BR", {style:"currency", currency:"BRL", minimumFractionDigits: 2})}</OfferItemFullPrice>
+            <OfferItemDiscountedPrice>por {product?.price.toLocaleString("pt-BR", {style:"currency", currency:"BRL", minimumFractionDigits: 2})}</OfferItemDiscountedPrice>
           </OfferItemPrices>
         </OfferItemTextInfo>
         <Countdown />
@@ -340,6 +340,7 @@ const OfferItem = () => {
           >
             <HeartIcon myColor="var(--silver)"></HeartIcon>
           </ButtonFavorite>
+          
           <ButtonAddToCart>
             <p>Carrinho</p>
             <div></div>

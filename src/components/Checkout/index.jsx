@@ -4,16 +4,17 @@ import CartSummary from "./CartSummary/index";
 import ItemList from "./ItemList/index";
 
 const ContentContainer = styled.div`
-  align-items: flex-start;
-  box-sizing: border-box;
   display: flex;
-  height: 465.184px;
+  align-items: center;
+  box-sizing: border-box;
+
   gap: var(--spacing-2-xl, 24px);
   flex-shrink: 0;
   padding: var(--spacing-4-xl, 40px) 200px;
   position: relative;
   overflow: scroll;
-  width: 1600px;
+
+  //width: 1600px;
 `;
 
 const Checkout = () => {

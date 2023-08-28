@@ -21,7 +21,7 @@ const ProductsHeader = styled.div`
   align-items: flex-end;
   gap: var(--spacing-md, 4px);
   height: 60px;
-  width: 1200px;
+  //width: 1200px;
 `;
 
 const SeeAllButton = styled.button`
@@ -64,7 +64,7 @@ const SeeAllIcon = styled.div`
   align-items: center;
 `;
 
-const Arrow = ({arrowColor}) => (
+const Arrow = ({ arrowColor }) => (
   <svg
     width="8"
     height="12"
@@ -122,7 +122,7 @@ const ProductsSection = styled.div`
   grid-template-rows: repeat(2, 1fr);
   gap: 24px;
   height: 784px;
-  width: 1200px;
+  //width: 1200px;
 `;
 
 const ProductCard = styled.div`
@@ -310,6 +310,7 @@ const ButtonAddToCart = styled.button`
     margin: 0;
     padding: 0;
     width: 62px;
+  }
 
   div {
     display: flex;
@@ -359,26 +360,27 @@ const ArrowsSection = styled.div`
 `;
 
 const PageNavIcon = styled.button`
-border-radius: 30px;
-border: 1px solid var(--antiFlashWhite);
-background: var(--white);
-box-sizing: border-box;
-display: flex;
-width: 46px;
-height: 46px;
-padding: var(--spacing-lg, 8px);
-flex-direction: column;
-justify-content: center;
-align-items: center;
-gap: 10px;
-height: 46px;
-transform: ${props => props.forward ? "rotate(180deg)" : "rotate(0deg)"};
-width: 46px;
-`
+  border-radius: 30px;
+  border: 1px solid var(--antiFlashWhite);
+  background: var(--white);
+  box-sizing: border-box;
+  display: flex;
+  width: 46px;
+  height: 46px;
+  padding: var(--spacing-lg, 8px);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  height: 46px;
+  transform: ${(props) => (props.forward ? "rotate(180deg)" : "rotate(0deg)")};
+  width: 46px;
+`;
 
 function ProductsContainer() {
   const { cart, dispatch } = useCart();
   const [products, setProducts] = useState([]);
+  const [productFavorites, setProductFavorites] = useState({});
 
   useEffect(() => {
     axios
@@ -396,12 +398,13 @@ function ProductsContainer() {
   };
 
   const [isFavorited, setFavorited] = useState(false);
-  const handleFavorite = () => {
-    setFavorited(!isFavorited);
+
+  const handleFavorite = (productId) => {
+    setProductFavorites((prevFavorites) => ({
+      ...prevFavorites,
+      [productId]: !prevFavorites[productId],
+    }));
   };
-  if (isFavorited) {
-    HeartIcon.myColor = "var(--white)";
-  }
 
   return (
     <Container>
@@ -441,21 +444,42 @@ function ProductsContainer() {
 
                 <ProductPrices>
                   <p className="fullPrice">
-                    de {product.price.toLocaleString("pt-BR", {style:"currency", currency:"BRL", minimumFractionDigits: 2})}
+                    de{" "}
+                    {product.price.toLocaleString("pt-BR", {
+                      style: "currency",
+                      currency: "BRL",
+                      minimumFractionDigits: 2,
+                    })}
                   </p>
                   <p className="discountedPrice">
-                    por {product.price.toLocaleString("pt-BR", {style:"currency", currency:"BRL", minimumFractionDigits: 2})}
+                    por{" "}
+                    {product.price.toLocaleString("pt-BR", {
+                      style: "currency",
+                      currency: "BRL",
+                      minimumFractionDigits: 2,
+                    })}
                   </p>
                 </ProductPrices>
               </ProductInformation>
 
               <CardButtons>
                 <ButtonFavorite
-                  onClick={handleFavorite}
-                  style={{ background: isFavorited ? "var(--turquoise)" : "var(--white)" }}
+                  onClick={() => handleFavorite(product.id)}
+                  style={{
+                    background: productFavorites[product.id]
+                      ? "var(--turquoise)"
+                      : "var(--white)",
+                  }}
                 >
-                  <HeartIcon myColor="var(--silver)"></HeartIcon>
+                  <HeartIcon
+                    myColor={
+                      productFavorites[product.id]
+                        ? "var(--turquoise)"
+                        : "var(--silver)"
+                    }
+                  />
                 </ButtonFavorite>
+                
                 <ButtonAddToCart onClick={() => addToCart(product)}>
                   <p>Carrinho</p>
                   <div>
@@ -469,10 +493,10 @@ function ProductsContainer() {
       </ProductsSection>
       <ArrowsSection>
         <PageNavIcon>
-        <Arrow arrowColor="var(--dimGray)" />
+          <Arrow arrowColor="var(--dimGray)" />
         </PageNavIcon>
         <PageNavIcon forward>
-        <Arrow arrowColor="var(--dimGray)" />
+          <Arrow arrowColor="var(--dimGray)" />
         </PageNavIcon>
       </ArrowsSection>
     </Container>
