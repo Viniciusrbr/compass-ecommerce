@@ -3,18 +3,11 @@ import Coupon from "./Coupon/index";
 import BuyButton from "./BuyButton";
 import { useCart } from "../../../store/CartContext";
 
-const colors = {
-  aqua: "#62D0B6",
-  snow: "#EEEEEE",
-  lightGray: "#666666",
-  mediumGray: "#333333",
-};
-
 const CartSummaryContainer = styled.div`
   align-items: flex-end;
   border-radius: 4px;
-  border: 1px solid #eee;
-  background: #fff;
+  border: 1px solid var(--antiFlashWhite);
+  background: var(--white);
   display: flex;
   height: 336px;
   padding: var(--spacing-xl, 16px);
@@ -26,7 +19,7 @@ const CartSummaryContainer = styled.div`
   
   h1 {
     align-self: stretch;
-    color: ${colors.mediumGray};
+    color: var(--jet);
     text-align: right;
     font-family: Roboto Flex;
     font-size: 18px;
@@ -49,7 +42,7 @@ const SummaryPrice = styled.div`
   width: 250px;
 
   p.pricetotal {
-    color: ${colors.lightGray};
+    color: var(--dimGray);
     font-family: Roboto Flex;
     font-size: 20px;
     font-style: normal;
@@ -60,7 +53,7 @@ const SummaryPrice = styled.div`
   }
 
   p.summarylabel {
-    color: ${colors.lightGray};
+    color: var(--dimGray);
     text-align: right;
     font-family: Roboto Flex;
     font-size: 16px;
@@ -73,7 +66,7 @@ const SummaryPrice = styled.div`
 `;
 
 const Spacer = styled.div`
-  border-bottom: 1px solid ${colors.snow};
+  border-bottom: 1px solid var(--antiFlashWhite);
   width: 250px;
 `;
 

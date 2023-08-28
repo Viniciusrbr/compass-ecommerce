@@ -1,14 +1,9 @@
 import styled from "styled-components";
 
-const colors = {
-  aqua: "#62D0B6",
-  white: "#FFFFFF",
-};
-
 const ButtonContainer = styled.button`
   border-radius: var(--radius-sm, 4px);
-  border: 1px solid #62d0b6;
-  background: #62d0b6;
+  border: 1px solid var(--turquoise);
+  background: var(--turquoise);
   display: flex;
   padding: var(--spacing-xl, 16px);
   justify-content: center;
@@ -19,7 +14,7 @@ const ButtonContainer = styled.button`
   width: 250px;
 
   p {
-    color: ${colors.white};
+    color: var(--white);
     text-align: right;
     font-family: Roboto Flex;
     font-size: 16px;

@@ -6,18 +6,6 @@ import TagDiscount from "../../TagDiscount/index";
 import Countdown from "../../Countdown/index";
 import CartIcon from "../../../assets/icons/cart.svg";
 
-const colors = {
-  aqua: "#62D0B6",
-  aquaHover: "#81D9C5",
-  coral: "#F55157",
-  buttonGray: "#EEEEEE",
-  lightGray: "#F8F8F8",
-  mediumGray: "#A5A5A5",
-  mediumDarkGray: "#666666",
-  darkGray: "#333333",
-  white: "#FFFFFF",
-};
-
 const HeartIcon = ({ myColor }) => (
   <svg
     width="18"
@@ -40,7 +28,7 @@ const OfferItemContainer = styled.div`
   align-items: flex-start;
   background-color: white;
   border-radius: var(--radius-sm, 4px);
-  border: 2px solid #62D0B6;
+  border: 2px solid var(--turquoise);
   display: flex;
   flex: 1 0 0;
   height: 271px;
@@ -88,7 +76,7 @@ const OfferItemTextInfo = styled.div`
 
 const OfferItemTitle = styled.p`
   align-self: stretch;
-  color: ${colors.darkGray};
+  color: var(--jet);
   text-align: right;
   font-family: Roboto Flex;
   font-size: 18px;
@@ -105,7 +93,7 @@ const OfferItemTitle = styled.p`
 
 const OfferItemDescription = styled.p`
   align-self: stretch;
-  color: ${colors.mediumDarkGray};
+  color: var(--dimGray);
   text-align: right;
   font-family: Roboto Flex;
   font-size: 16px;
@@ -130,7 +118,7 @@ const OfferItemRating = styled.div`
 `;
 
 const OfferItemRatingText = styled.p`
-  color: ${colors.mediumGray};
+  color: var(--silver);
   text-align: right;
   font-family: Roboto Flex;
   font-size: 14px;
@@ -176,8 +164,8 @@ const StarIconHalfFilled = () => {
   >
     <defs>
       <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="50%" style="stop-color:rgb(255,198,42);stop-opacity:1" />
-        <stop offset="50%" style="stop-color:rgb(255,255,255);stop-opacity:1" />
+        <stop offset="50%" style="stop-color:var(--mikadoYellow);stop-opacity:1" />
+        <stop offset="50%" style="stop-color:var(--timberwolf);stop-opacity:1" />
       </linearGradient>
     </defs>
     <path
@@ -199,7 +187,7 @@ const OfferItemPrices = styled.div`
 `;
 
 const OfferItemFullPrice = styled.p`
-  color: ${colors.mediumGray};
+  color: var(--silver);
   text-align: right;
   flex: 1 0 0;
   font-family: Roboto Flex;
@@ -215,7 +203,7 @@ const OfferItemFullPrice = styled.p`
 `;
 
 const OfferItemDiscountedPrice = styled.div`
-  color: ${colors.coral};
+  color: var(--folly);
   text-align: right;
   font-family: Roboto Flex;
   font-size: 18px;
@@ -237,9 +225,9 @@ const ButtonContainer = styled.div`
 `;
 
 export const ButtonFavorite = styled.button`
-  background: ${colors.white};
+  background: var(--white);
   border-radius: var(--radius-sm, 4px);
-  border: 1px solid ${colors.buttonGray};
+  border: 1px solid var(--antiFlashWhite);
   display: flex;
   padding: var(--spacing-xl, 16px);
   justify-content: center;
@@ -251,9 +239,9 @@ export const ButtonFavorite = styled.button`
 `;
 
 const ButtonAddToCart = styled.button`
-  background: ${colors.aqua};
+  background: var(--turquoise);
   border-radius: var(--radius-sm, 4px);
-  border: 1px solid #62d0b6;
+  border: 1px solid var(--turquoise);
   display: flex;
   padding: var(--spacing-xl, 16px);
   justify-content: center;
@@ -268,7 +256,7 @@ const ButtonAddToCart = styled.button`
   }
 
   p {
-    color: ${colors.white};
+    color: var(--white);
     text-align: right;
     font-family: Roboto Flex;
     font-size: 16px;
@@ -311,13 +299,7 @@ const OfferItem = () => {
       .catch((error) => console.log(error));
   });
 
-  let localizedPrice = new Intl.NumberFormat("pt-BR", {
-    style: "currency",
-    currency: "BRL",
-    minimumFractionDigits: 2,
-  });
-
-  const [discount, setDiscount] = useState(0);
+  const [discount, setDiscount] = useState();
 
   function getRandomDiscount(min, max) {
     min = Math.ceil(min);
@@ -338,25 +320,25 @@ const OfferItem = () => {
           <OfferItemRating>
             <OfferItemRatingText>({product?.rating.rate})</OfferItemRatingText>
             <OfferItemRatingStars>
-              <StarIcon myFill="#FFC62A"></StarIcon>
-              <StarIcon myFill="#FFC62A"></StarIcon>
-              <StarIcon myFill="#FFC62A"></StarIcon>
+              <StarIcon myFill="var(--mikadoYellow)"></StarIcon>
+              <StarIcon myFill="var(--mikadoYellow)"></StarIcon>
+              <StarIcon myFill="var(--mikadoYellow)"></StarIcon>
               <StarIcon myFill="var(--timberwolf)"></StarIcon>
               <StarIcon myFill="var(--timberwolf)"></StarIcon>
             </OfferItemRatingStars>
           </OfferItemRating>
           <OfferItemPrices>
-            <OfferItemFullPrice>de R$ {product?.price}</OfferItemFullPrice>
-            <OfferItemDiscountedPrice>por R$ {product?.price}</OfferItemDiscountedPrice>
+            <OfferItemFullPrice>de {product.price.toLocaleString("pt-BR", {style:"currency", currency:"BRL", minimumFractionDigits: 2})}</OfferItemFullPrice>
+            <OfferItemDiscountedPrice>por {product.price.toLocaleString("pt-BR", {style:"currency", currency:"BRL", minimumFractionDigits: 2})}</OfferItemDiscountedPrice>
           </OfferItemPrices>
         </OfferItemTextInfo>
         <Countdown />
         <ButtonContainer>
           <ButtonFavorite
             onClick={handleFavorite}
-            style={{ background: isFavorited ? "#62D0B6" : "#FFFFFF" }}
+            style={{ background: isFavorited ? "var(--turquoise)" : "var(--white)" }}
           >
-            <HeartIcon myColor="#A5A5A5"></HeartIcon>
+            <HeartIcon myColor="var(--silver)"></HeartIcon>
           </ButtonFavorite>
           <ButtonAddToCart>
             <p>Carrinho</p>

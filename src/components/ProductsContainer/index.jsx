@@ -400,7 +400,7 @@ function ProductsContainer() {
     setFavorited(!isFavorited);
   };
   if (isFavorited) {
-    HeartIcon.myColor = "#9af785";
+    HeartIcon.myColor = "var(--white)";
   }
 
   return (
@@ -441,10 +441,10 @@ function ProductsContainer() {
 
                 <ProductPrices>
                   <p className="fullPrice">
-                    de R$ {product.price.toLocaleString("pt-BR")}
+                    de {product.price.toLocaleString("pt-BR", {style:"currency", currency:"BRL", minimumFractionDigits: 2})}
                   </p>
                   <p className="discountedPrice">
-                    por R$ {product.price.toLocaleString("pt-BR")}
+                    por {product.price.toLocaleString("pt-BR", {style:"currency", currency:"BRL", minimumFractionDigits: 2})}
                   </p>
                 </ProductPrices>
               </ProductInformation>
@@ -452,14 +452,14 @@ function ProductsContainer() {
               <CardButtons>
                 <ButtonFavorite
                   onClick={handleFavorite}
-                  style={{ background: isFavorited ? "#62D0B6" : "#FFFFFF" }}
+                  style={{ background: isFavorited ? "var(--turquoise)" : "var(--white)" }}
                 >
-                  <HeartIcon myColor="#A5A5A5"></HeartIcon>
+                  <HeartIcon myColor="var(--silver)"></HeartIcon>
                 </ButtonFavorite>
                 <ButtonAddToCart onClick={() => addToCart(product)}>
                   <p>Carrinho</p>
                   <div>
-                    <CartIcon cartColor="#333333" />
+                    <CartIcon cartColor="var(--jet)" />
                   </div>
                 </ButtonAddToCart>
               </CardButtons>

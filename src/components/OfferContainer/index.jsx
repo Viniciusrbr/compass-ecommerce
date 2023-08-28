@@ -13,7 +13,7 @@ box-sizing: border-box;
 `
 
 const OfferContainerTitle = styled.p`
-    color: #333333;
+    color: var(--jet);
     font-family: Roboto Flex;
     font-size: 24px;
     font-style: normal;
