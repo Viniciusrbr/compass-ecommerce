@@ -80,6 +80,10 @@ const OfferItemTextInfo = styled.div`
   align-items: flex-start;
   gap: var(--spacing-md, 4px);
   align-self: stretch;
+  
+  a {
+    text-decoration: none;
+  }
 `;
 
 const OfferItemTitle = styled.p`
@@ -325,7 +329,9 @@ const OfferItem = () => {
     <OfferItemContainer>
       <OfferItemDetails>
         <OfferItemTextInfo>
+        <Link to={`/productDetails/${product?.id}`}>
           <OfferItemTitle>{product?.title}</OfferItemTitle>
+          </Link>
           <OfferItemDescription line={1}>
             {product?.description}
           </OfferItemDescription>
