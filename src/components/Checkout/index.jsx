@@ -1,17 +1,19 @@
 import styled from "styled-components";
-import { useCart } from "../../store/CartContext"
+import { useCart } from "../../store/CartContext";
 import CartSummary from "./CartSummary/index";
 import ItemList from "./ItemList/index";
 
 const ContentContainer = styled.div`
-  display: flex;
-  width: 1200px;
-  height: 465.184px;
   align-items: flex-start;
+  box-sizing: border-box;
+  display: flex;
+  height: 465.184px;
   gap: var(--spacing-2-xl, 24px);
   flex-shrink: 0;
-  padding: 0 200px;
+  padding: var(--spacing-4-xl, 40px) 200px;
+  position: relative;
   overflow: scroll;
+  width: 1600px;
 `;
 
 const Checkout = () => {

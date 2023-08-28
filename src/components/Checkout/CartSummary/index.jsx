@@ -21,6 +21,7 @@ const CartSummaryContainer = styled.div`
   flex-direction: column;
   gap: var(--spacing-xl, 16px);
   flex-shrink: 0;
+  position: sticky;
   width: 250px;
   
   h1 {
