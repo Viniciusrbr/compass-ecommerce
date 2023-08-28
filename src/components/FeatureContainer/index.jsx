@@ -1,64 +1,107 @@
 import styled from "styled-components";
 import cardIcon from "../../assets/icons/card-icon.png";
 import loadingIcon from "../../assets/icons/loading-icon.png";
-import carIcon from "../../assets/icons/car-icon.png";
+import truckIcon from "../../assets/icons/car-icon.png";
 
 const SectionContainer = styled.div`
+  border-radius: 2px;
+  border: 1px solid var(--antiFlashWhite);
+  background: var(--white);
   display: flex;
+  height: 123px;
   justify-content: center;
   align-items: center;
+  margin: 58px 200px 0 200px;
+  width: 1200px;
 `;
 
 const DivContainer = styled.div`
-  padding: 32px;
-
-  border-radius: 2px;
-  border: 1px solid #eee;
+  border-radius: 4px;
+  background: var(--white);
+  box-sizing: border-box;
   display: flex;
-  align-items: center; 
-<<<<<<< HEAD
-  gap: 16px;
-  width: 335px;
-=======
->>>>>>> 1b8f60b8ef2a2aa4d769054650803d898bdd3cbc
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--spacing-xl, 16px);
+  margin: 0;
+  padding: 32px 0 32px 0;
+  flex: 1 0 0;
+  height: 123px;
+  width: 398.67px;
+`;
+
+const Separator = styled.div`
+  align-items: center;
+  border: 1px solid var(--antiFlashWhite);
+  border-top: 0;
+  border-bottom: 0;
+  display: flex;
+  justify-content: center;
+  height: 59px;
+  width: 100%;
+`;
+
+const Feature = styled.div`
+  align-items: center;
+  gap: var(--spacing-xl, 16px);
+  margin: 0;
+  padding: var(--spacing-3-xl, 32px);
+  display: flex;
+  flex: 1 0 0;
+  height: 59px;
+  justify-content: flex-end;
+  margin: 0;
+  width: 279px;
 `;
 
 const Content = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-end; 
-  width: 100%;
-  p{
+  align-items: flex-end;
+  height: 59px;
+  margin: 0;
+  width: 279px;
+  p {
     margin: 0;
   }
 `;
 
 const Title = styled.p`
-<<<<<<< HEAD
-  color: #333;
+  color: var(--jet);
   text-align: right;
-=======
-  margin-top: 0;
-  text-align: right; 
-  margin-bottom: 1px;
->>>>>>> 1b8f60b8ef2a2aa4d769054650803d898bdd3cbc
   font-family: Roboto Mono;
   font-size: 20px;
+  font-style: normal;
   font-weight: 400;
+  line-height: 30px;
+  text-align: right;
+  width: 100%;
 `;
 
 const Text = styled.p`
-  color: #666;
+  color: var(--dimGray);
   text-align: right;
   font-family: Roboto Flex;
   font-size: 16px;
+  font-style: normal;
   font-weight: 400;
+  line-height: 25px;
+  width: 100%;
 `;
 
-const Image = styled.img`
-  margin-left: 16px;
+const IconContainer = styled.div`
+  background-image: ${(props) => `url(${props.image})`};
+  background-origin: content-box;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: flex;
   width: 40px;
-  height: 34.375px;
+  height: 40px;
+  margin: 0;
+  padding: 2.813px 0px;
+  justify-content: center;
+  align-items: center;
 `;
 
 const FeatureSection = () => {
@@ -74,7 +117,7 @@ const FeatureSection = () => {
       text: "Aprovação de compra",
     },
     {
-      imgSrc: carIcon,
+      imgSrc: truckIcon,
       title: "Entrega",
       text: "Entregamos para todo Brasil",
     },
@@ -84,12 +127,15 @@ const FeatureSection = () => {
     <SectionContainer>
       {divData.map((item, index) => (
         <DivContainer key={index}>
-          <Content>
-            <Title>{item.title}</Title>
-            <Text>{item.text}</Text>
-          </Content>
-
-          <Image src={item.imgSrc} alt={`Imagem ${index + 1}`} />
+          <Separator>
+            <Feature>
+              <Content>
+                <Title>{item.title}</Title>
+                <Text>{item.text}</Text>
+              </Content>
+              <IconContainer image={item.imgSrc} alt={`Imagem ${index + 1}`} />
+            </Feature>
+          </Separator>
         </DivContainer>
       ))}
     </SectionContainer>

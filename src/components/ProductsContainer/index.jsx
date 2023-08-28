@@ -3,11 +3,13 @@ import styled from "styled-components";
 import { useCart } from "../../store/CartContext";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import ArrowIcon from "../../assets/icons/go-back-icon.svg";
 import ProductTag from "../ProductTag/index";
 
 const Container = styled.div`
   display: inline-flex;
   padding: var(--spacing-6-xl, 56px) 200px;
+  padding-top: 26px;
   flex-direction: column;
   align-items: center;
   gap: var(--spacing-3-xl, 32px);
@@ -39,9 +41,46 @@ const SeeAllButton = styled.button`
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
+    height: 16px;
     line-height: normal;
+    margin: 0;
+    padding: 0;
+    width: 55px;
   }
 `;
+
+const SeeAllIcon = styled.div`
+  background-image: ${ArrowIcon};
+  background-origin: content-box;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  box-sizing: border-box;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  padding: 2px 4.667px;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Arrow = ({arrowColor}) => (
+  <svg
+    width="8"
+    height="12"
+    viewBox="0 0 8 12"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g id="Icon">
+      <path
+        id="Vector"
+        d="M6.64089 12.0002C6.46438 12.0002 6.28787 11.9322 6.15209 11.7961L0.870353 6.50352C0.748153 6.38107 0.666687 6.20419 0.666687 6.01371C0.666687 5.83684 0.734576 5.61915 0.870353 5.4967L6.15209 0.204085C6.42365 -0.0680284 6.85813 -0.0680284 7.12969 0.204085C7.40124 0.476199 7.40124 0.911581 7.12969 1.18369L2.30959 6.00011L7.12969 10.8301C7.40124 11.1022 7.40124 11.5376 7.12969 11.8097C6.99391 11.9322 6.8174 12.0002 6.64089 12.0002Z"
+        fill={arrowColor}
+      />
+    </g>
+  </svg>
+);
 
 const ContainerTitles = styled.div`
   display: flex;
@@ -249,11 +288,18 @@ const ButtonAddToCart = styled.button`
 
   &:hover {
     background: var(--turquoise);
-    text-color: white;
+
+    p {
+      color: var(--white);
+    }
+
+    path {
+      fill: var(--white);
+    }
   }
 
   p {
-    color: #333333;
+    color: var(--jet);
     text-align: center;
     font-family: Roboto Flex;
     font-size: 16px;
@@ -265,10 +311,6 @@ const ButtonAddToCart = styled.button`
     padding: 0;
     width: 62px;
 
-    &:hover {
-      color: var(--white);
-  }
-
   div {
     display: flex;
     width: 16px;
@@ -276,8 +318,6 @@ const ButtonAddToCart = styled.button`
     padding: 1.222px 1.229px 1.333px 1.193px;
     justify-content: center;
     align-items: center;
-    height: 13px;
-    width: 13px;
   }
 `;
 
@@ -308,6 +348,34 @@ const CartIcon = ({ cartColor }) => (
   </svg>
 );
 
+const ArrowsSection = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-md, 4px);
+  align-self: stretch;
+  height: 46px;
+  width: 100%;
+`;
+
+const PageNavIcon = styled.button`
+border-radius: 30px;
+border: 1px solid var(--antiFlashWhite);
+background: var(--white);
+box-sizing: border-box;
+display: flex;
+width: 46px;
+height: 46px;
+padding: var(--spacing-lg, 8px);
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 10px;
+height: 46px;
+transform: ${props => props.forward ? "rotate(180deg)" : "rotate(0deg)"};
+width: 46px;
+`
+
 function ProductsContainer() {
   const { cart, dispatch } = useCart();
   const [products, setProducts] = useState([]);
@@ -332,13 +400,18 @@ function ProductsContainer() {
     setFavorited(!isFavorited);
   };
   if (isFavorited) {
-    HeartIcon.myColor = "#42f785";
+    HeartIcon.myColor = "#9af785";
   }
 
   return (
     <Container>
       <ProductsHeader>
-        <SeeAllButton>Ver Tudo</SeeAllButton>
+        <SeeAllButton>
+          <SeeAllIcon>
+            <Arrow arrowColor="var(--mintGreen)" />
+          </SeeAllIcon>
+          <p>Ver Tudo</p>
+        </SeeAllButton>
         <ContainerTitles>
           <h1>Produtos em destaque</h1>
           <p className="caption">
@@ -351,10 +424,15 @@ function ProductsContainer() {
         {products.map((product) => (
           <ProductCard key={product.id}>
             <Link to={`/productDetails/${product.id}`}>
-              <ProductImage image={product?.image} alt={product.title}>
-              </ProductImage>
+              <ProductImage
+                image={product?.image}
+                alt={product.title}
+              ></ProductImage>
             </Link>
-            <ProductTag situation={product.category}></ProductTag>
+            <ProductTag
+              situation={product.category}
+              discount={product?.id}
+            ></ProductTag>
             <ProductContent>
               <ProductInformation>
                 <Link to={`/productDetails/${product.id}`}>
@@ -362,9 +440,11 @@ function ProductsContainer() {
                 </Link>
 
                 <ProductPrices>
-                  <p className="fullPrice">de R$ {product.price.toFixed(2)}</p>
+                  <p className="fullPrice">
+                    de R$ {product.price.toLocaleString("pt-BR")}
+                  </p>
                   <p className="discountedPrice">
-                    por R$ {product.price.toFixed(2)}
+                    por R$ {product.price.toLocaleString("pt-BR")}
                   </p>
                 </ProductPrices>
               </ProductInformation>
@@ -379,7 +459,7 @@ function ProductsContainer() {
                 <ButtonAddToCart onClick={() => addToCart(product)}>
                   <p>Carrinho</p>
                   <div>
-                    <CartIcon cartColor="A5A5A5" />
+                    <CartIcon cartColor="#333333" />
                   </div>
                 </ButtonAddToCart>
               </CardButtons>
@@ -387,6 +467,14 @@ function ProductsContainer() {
           </ProductCard>
         ))}
       </ProductsSection>
+      <ArrowsSection>
+        <PageNavIcon>
+        <Arrow arrowColor="var(--dimGray)" />
+        </PageNavIcon>
+        <PageNavIcon forward>
+        <Arrow arrowColor="var(--dimGray)" />
+        </PageNavIcon>
+      </ArrowsSection>
     </Container>
   );
 }

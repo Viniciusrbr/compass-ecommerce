@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import api from "../../../services/api";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
-import Theme from "../../../Theme";
 import TagDiscount from "../../TagDiscount/index";
 import Countdown from "../../Countdown/index";
 import CartIcon from "../../../assets/icons/cart.svg";
@@ -66,6 +66,7 @@ const OfferItemImage = styled.section`
   background-repeat: no-repeat;
   background-size: contain;
   border-radius: 0 4px 0 0;
+  box-sizing: border-box;
   height: 271px;
   margin: auto;
   padding: 16px;
@@ -79,6 +80,10 @@ const OfferItemTextInfo = styled.div`
   align-items: flex-start;
   gap: var(--spacing-md, 4px);
   align-self: stretch;
+  
+  a {
+    text-decoration: none;
+  }
 `;
 
 const OfferItemTitle = styled.p`
@@ -259,7 +264,7 @@ const ButtonAddToCart = styled.button`
   width: 302px;
 
   &:hover {
-    background: ${colors.aquaHover};
+    background: var(--tiffanyBlue);
   }
 
   p {
@@ -324,23 +329,25 @@ const OfferItem = () => {
     <OfferItemContainer>
       <OfferItemDetails>
         <OfferItemTextInfo>
+        <Link to={`/productDetails/${product?.id}`}>
           <OfferItemTitle>{product?.title}</OfferItemTitle>
+          </Link>
           <OfferItemDescription line={1}>
             {product?.description}
           </OfferItemDescription>
           <OfferItemRating>
-            <OfferItemRatingText>(5.0)</OfferItemRatingText>
+            <OfferItemRatingText>({product?.rating.rate})</OfferItemRatingText>
             <OfferItemRatingStars>
               <StarIcon myFill="#FFC62A"></StarIcon>
               <StarIcon myFill="#FFC62A"></StarIcon>
               <StarIcon myFill="#FFC62A"></StarIcon>
-              <StarIcon myFill="#FFC62A"></StarIcon>
-              <StarIcon myFill="#FFC62A"></StarIcon>
+              <StarIcon myFill="var(--timberwolf)"></StarIcon>
+              <StarIcon myFill="var(--timberwolf)"></StarIcon>
             </OfferItemRatingStars>
           </OfferItemRating>
           <OfferItemPrices>
-            <OfferItemFullPrice>de R$ {product?.price.toFixed(2)}</OfferItemFullPrice>
-            <OfferItemDiscountedPrice>por R$ {product?.price.toFixed(2)}</OfferItemDiscountedPrice>
+            <OfferItemFullPrice>de R$ {product?.price}</OfferItemFullPrice>
+            <OfferItemDiscountedPrice>por R$ {product?.price}</OfferItemDiscountedPrice>
           </OfferItemPrices>
         </OfferItemTextInfo>
         <Countdown />
@@ -357,9 +364,11 @@ const OfferItem = () => {
           </ButtonAddToCart>
         </ButtonContainer>
       </OfferItemDetails>
+      <Link to={`/productDetails/${product?.id}`}>
       <OfferItemImage image={product?.image}>
-        <TagDiscount />
+        <TagDiscount discount={product?.id} />
       </OfferItemImage>
+      </Link>
     </OfferItemContainer>
   );
 };
