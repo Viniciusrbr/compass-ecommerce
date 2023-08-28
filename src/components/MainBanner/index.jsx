@@ -12,12 +12,13 @@ const BannerContainer = styled.section`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  box-sizing: border-box;
   height: 496px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 1600px;
 `;
 
 const ContainerTexts = styled.div`
