@@ -322,6 +322,12 @@ const OfferItem = ({ myColor }) => {
     return Math.floor(Math.random() * (max - min) + min);
   };
 
+  const discountedPrice = () => {
+    return cart.reduce((total, item) => {
+      return (item.price * (100-item.id))/100;
+    }, 0);
+  };
+
   return (
     <>
     {products?.map((product) => (
@@ -346,7 +352,7 @@ const OfferItem = ({ myColor }) => {
           </OfferItemRating>
           <OfferItemPrices>
             <OfferItemFullPrice>de {product?.price.toLocaleString("pt-BR", {style:"currency", currency:"BRL", minimumFractionDigits: 2})}</OfferItemFullPrice>
-            <OfferItemDiscountedPrice>por {product?.price.toLocaleString("pt-BR", {style:"currency", currency:"BRL", minimumFractionDigits: 2})}</OfferItemDiscountedPrice>
+            <OfferItemDiscountedPrice>por {((product?.price * (100-product?.id))/100).toLocaleString("pt-BR", {style:"currency", currency:"BRL", minimumFractionDigits: 2})}</OfferItemDiscountedPrice>
           </OfferItemPrices>
         </OfferItemTextInfo>
         <Countdown />
