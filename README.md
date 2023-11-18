@@ -1,8 +1,15 @@
-# React + Vite
+# E-commerce
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Projeto de um simples e-commerce que puxa dados de uma API feito em equipe durante meu período de estágio na Compasss.
 
-Currently, two official plugins are available:
+✅O principal objetivo do projeto foi aprender a trabalhar em grupo e aplicar os conceitos do Git Flow
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[🎨Design do Projeto - FIGMA ](https://www.figma.com/file/82hQBnUfzzZ4gCoFVspCYh/E-Commerce-%7C-Compass?type=design&node-id=0-1&mode=design)
+
+<h3>Tecnologias usadas:</h3>
+<ul>
+  <li>React + Vite</li>
+  <li>React Router DOM</li>
+  <li>Styled Components</li>
+  <li>Axios</li>
+</ul>
